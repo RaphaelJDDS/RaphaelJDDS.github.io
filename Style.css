@@ -1,312 +1,447 @@
-body {
-	font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(#05172e, #0c1426, #001121) ;
-    padding: full;
-}
-nav{
-	display: inline;
-}
-.navbar {
-    overflow: hidden;
-    background-color: transparent;
-  }
-  
-  /* Links inside the navbar */
-  .navbar a {
-    float: left;
-    font-size: 16px;
-    color: transparent;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* The dropdown container */
-  .dropdown {
-    float: left;
-    overflow: hidden;
-  }
-  
-  /* Dropdown button */
-  .dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: aliceblue;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0; 
-    transition: 200ms;
-  }
-  
-  .navbar a:hover, .dropdown:hover .dropbtn {
-    font-size: 1.2em;
-    color: aliceblue;
-    transition: 200ms;
-  }
-  
-  /* Dropdown content (hidden by default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: transparent;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    float: none;
-    transition: 200ms;
-    color: aliceblue;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  /* Add a grey background color to dropdown links on hover */
-  .dropdown-content a:hover {
-    background-color: transparent;
-    text-shadow: 20px 0 20px 20px;
-    transition: 200ms;
-  }
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-::-webkit-scrollbar {
-    width: 2px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 1px;
-  }
-    ::-webkit-scrollbar-thumb {
-    background: rgb(0, 0, 0);
-    border-radius: 1px;
-  }
-.box{
-    font-family: 'Source Code Pro', monospace;	color: aliceblue;
-	font-size: 22px;
-    color: aliceblue;
-	text-decoration: aliceblue;
-    background-color: #05172e;
-    border-bottom: 200px;
-    max-width: 200%;
-    max-height: 120%;
-    margin-top: -9px;
-    margin-left:-3%;
-    margin-right: -0.55%;
-    border-width: 0px 0px 1px 0px;
-    border-color: rgb(219, 232, 250);
-    border-style: solid;
-    display: flexbox;
-}
-.main-title{
-    text-align: left;
-	font-size: 4em;
-	margin: 0 0 1em;
-	clear: left;
-	width: 1240px;
-	margin: 1.5em auto;
-    color: aliceblue;
-}
-.intro {
-    text-align: left;
-    font-size: 1.45em;
-    width: 700px;
-    color: aliceblue;
-    margin: 2em;
-}
-.subtitles{
-    text-align: left;
-    font-size: 2.5em;
-    color: aliceblue;
-    margin: 2.5em;
-    position: static;
-    min-height: 25px;
-}
-.descriptions{
-    text-align: left;
-    font-size: 1.45em;
-    width: 600px;
-    color: aliceblue;
-    height: auto;
-    margin: 2em;
-}
-.ai{
-    padding: 0px 30px 300px 0px;
-    width: 600px;
-    position: absolute;
-}
-.coding{
-    padding: 380px 30px 300px 0px;
-    width: 600px;
-    position: absolute;
-}
-.reverse-engineering{
-    padding: 760px 30px 300px 0px;
-    width: 600px;
-    position: absolute;
-}
-.SciTech{
-    padding: 1140px 30px 300px 0px;
-    width: 600px;
-    position: absolute;
-}
-.aipics{
-    display: flex;
-}
-.intropics {
-    display: flex;
-}
-.aipics .img1{
-    margin-left: 55%;
-    margin-right: 45%;
-    margin-top: -3%;
-    border-radius: 5%;
-    transition: transform .4s;
-    transition: 400ms;
-    position: absolute;
-    display: flex;
-}
-.aipics .img2{
-    margin-left: 67%;
-    margin-right: 33%;
-    margin-top: -3%;
-    border-radius: 5%;
-    transition: transform .4s;
-    transition: 400ms;
-    position: absolute;
-    display: flex;
-}
-.aipics .img1:hover{
-    zoom: 100%;
-    margin-left: 48%;
-    margin-right: 52%;
-    position: absolute;
-	transition: 400ms;
-    transform: scale(2); 
-}
-.aipics .img2:hover{
-    zoom: 100%;
-    margin-left: 48%;
-    margin-right: 52%;
-    position: absolute;
-	transition: 400ms;
-    transform: scale(2); 
-}
-.descriptions{
-    display: flex;
-}
-.intropics .img3{
-    margin-left: 55%;
-    margin-right: 45%;
-    margin-top: -18.4%;
-    height: auto;
-    border-bottom-left-radius: 5%;
-    transition: transform .4s;
-    transition: 400ms;
-    position: absolute;
-    display: flex;
-}
-.intropics .img4{
-    margin-left: 66.75%;
-    margin-right: 33.25%;
-    margin-top: -25%;
-    height: auto;
-    border-top-right-radius: 5%;
-    transition: transform .4s;
-    transition: 400ms;
-    position: absolute;
-    display: flex;
-}
-.intropics .img5{
-    margin-left: 55%;
-    margin-right: 45%;
-    margin-top: -25%;
-    height: auto;
-    border-top-left-radius: 5%;
-    transition: transform .4s;
-    transition: 400ms;
-    position: absolute;
-    display: flex;
-}
-.intropics .img6{
-    margin-left: 66.75%;
-    margin-right: 33.25%;
-    margin-top: -18.4%;
-    height: auto;
-    border-bottom-right-radius: 5%;
-    transition: transform .4s;
-    transition: 400ms;
-    position: absolute;
-    display: flex;
-}
-.codepic .img7{
-    margin-left: 55%;
-    margin-top: 18.4%;
-    border-radius: 2%;
-    transition: transform .4s;
-    transition: 400ms;
-    position: absolute;
-}
-.codepic .img7:hover{
-    zoom: 100%;
-    margin-left: 52.5%;
-    margin-top: 18.4%;
-    position: absolute;
-	transition: 400ms;
-    transform: scale(2); 
-}
-.decompilerpic .img8{
-    margin-left: 55%;
-    margin-top: 39.8%;
-    border-radius: 2%;
-    transition: transform .4s;
-    transition: 400ms;
-    position: absolute;
-}
-.decompilerpic .img8:hover{
-    zoom: 100%;
-    margin-left: 55%;
-    margin-top: 39.8%;
-	transition: 400ms;
-    transform: scale(2); 
-    position: absolute;
-}
-.medalspic .img9{
-    margin-left: 55%;
-    margin-top: 67.8%;
-    border-radius: 2%;
-    transition: transform .4s;
-    transition: 400ms;
-    position: absolute;
-}
-.medalspic .img9:hover{
-    zoom: 100%;
-    margin-left: 55%;
-    margin-top: 67.8%;
-	transition: 400ms;
-    transform: scale(2); 
-    position: absolute;
-}
+@media only screen and (min-width:600px){
+    body {
+        font-family: 'Quicksand', sans-serif;
+        background: linear-gradient(#05172e, #0c1426, #001121) ;
+        padding: full;
+    }
+    nav{
+        display: inline;
+    }
+    .navbar {
+        overflow: hidden;
+        background-color: transparent;
+    }
+    
+    /* Links inside the navbar */
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: transparent;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    /* The dropdown container */
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+    
+    /* Dropdown button */
+    .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: aliceblue;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0; 
+        transition: 3000ms;
+    }
+    
+    .navbar a:hover, .dropdown:hover .dropbtn {
+        font-size: 1.2em;
+        color: aliceblue;
+        transition: 3000ms;
+    }
+    
+    /* Dropdown content (hidden by default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: transparent;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        float: none;
+        transition: 3000ms;
+        color: aliceblue;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+    
+    /* Add a grey background color to dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: transparent;
+        text-shadow: 300px 0 300px 300px;
+        transition: 3000ms;
+    }
+    
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    ::-webkit-scrollbar {
+        width: 2px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 1px;
+    }
+        ::-webkit-scrollbar-thumb {
+        background: rgb(0, 0, 0);
+        border-radius: 1px;
+    }
+    .box{
+        font-family: 'Source Code Pro', monospace;	color: aliceblue;
+        font-size: 22px;
+        color: aliceblue;
+        text-decoration: aliceblue;
+        background-color: #05172e;
+        border-bottom: 3000px;
+        max-width: 3000%;
+        max-height: 1300%;
+        margin-top: -9px;
+        margin-left:-3%;
+        margin-right: -0.55%;
+        border-width: 0px 0px 1px 0px;
+        border-color: rgb(219, 232, 250);
+        border-style: solid;
+        display: flexbox;
+    }
+    .main-title{
+        text-align: left;
+        font-size: 4em;
+        margin: 0 0 1em;
+        clear: left;
+        width: 1240px;
+        margin: 1.5em auto;
+        color: aliceblue;
+    }
+    .intro {
+        text-align: left;
+        font-size: 1.45em;
+        width: 700px;
+        color: aliceblue;
+        margin: 2em;
+    }
+    .subtitles{
+        text-align: left;
+        font-size: 2.5em;
+        color: aliceblue;
+        margin: 2.5em;
+        position: static;
+        min-height: 25px;
+    }
+    .descriptions{
+        text-align: left;
+        font-size: 1.45em;
+        width: 600px;
+        color: aliceblue;
+        height: auto;
+        margin: 2em;
+    }
+    .ai{
+        padding: 0px 30px 300px 0px;
+        width: 600px;
+        position: absolute;
+    }
+    .coding{
+        padding: 380px 30px 300px 0px;
+        width: 600px;
+        position: absolute;
+    }
+    .reverse-engineering{
+        padding: 760px 30px 300px 0px;
+        width: 600px;
+        position: absolute;
+    }
+    .SciTech{
+        padding: 1140px 30px 300px 0px;
+        width: 600px;
+        position: absolute;
+    }
+    .aipics{
+        display: flex;
+    }
+    .intropics {
+        display: flex;
+    }
+    .aipics .img1{
+        margin-left: 55%;
+        margin-right: 45%;
+        margin-top: -3%;
+        border-radius: 5%;
+        transition: transform .4s;
+        transition: 400ms;
+        position: absolute;
+        display: flex;
+    }
+    .aipics .img2{
+        margin-left: 67%;
+        margin-right: 33%;
+        margin-top: -3%;
+        border-radius: 5%;
+        transition: transform .4s;
+        transition: 400ms;
+        position: absolute;
+        display: flex;
+    }
+    .aipics .img1:hover{
+        zoom: 100%;
+        margin-left: 48%;
+        margin-right: 52%;
+        position: absolute;
+        transition: 400ms;
+        transform: scale(2); 
+    }
+    .aipics .img2:hover{
+        zoom: 100%;
+        margin-left: 48%;
+        margin-right: 52%;
+        position: absolute;
+        transition: 400ms;
+        transform: scale(2); 
+    }
+    .descriptions{
+        display: flex;
+    }
+    .intropics .img3{
+        margin-left: 55%;
+        margin-right: 45%;
+        margin-top: -18.4%;
+        height: auto;
+        border-bottom-left-radius: 5%;
+        transition: transform .4s;
+        transition: 400ms;
+        position: absolute;
+        display: flex;
+    }
+    .intropics .img4{
+        margin-left: 66.75%;
+        margin-right: 33.25%;
+        margin-top: -25%;
+        height: auto;
+        border-top-right-radius: 5%;
+        transition: transform .4s;
+        transition: 400ms;
+        position: absolute;
+        display: flex;
+    }
+    .intropics .img5{
+        margin-left: 55%;
+        margin-right: 45%;
+        margin-top: -25%;
+        height: auto;
+        border-top-left-radius: 5%;
+        transition: transform .4s;
+        transition: 400ms;
+        position: absolute;
+        display: flex;
+    }
+    .intropics .img6{
+        margin-left: 66.75%;
+        margin-right: 33.25%;
+        margin-top: -18.4%;
+        height: auto;
+        border-bottom-right-radius: 5%;
+        transition: transform .4s;
+        transition: 400ms;
+        position: absolute;
+        display: flex;
+    }
+    .codepic .img7{
+        margin-left: 55%;
+        margin-top: 18.4%;
+        border-radius: 2%;
+        transition: transform .4s;
+        transition: 400ms;
+        position: absolute;
+    }
+    .codepic .img7:hover{
+        zoom: 100%;
+        margin-left: 52.5%;
+        margin-top: 18.4%;
+        position: absolute;
+        transition: 400ms;
+        transform: scale(2); 
+    }
+    .decompilerpic .img8{
+        margin-left: 55%;
+        margin-top: 39.8%;
+        border-radius: 2%;
+        transition: transform .4s;
+        transition: 400ms;
+        position: absolute;
+    }
+    .decompilerpic .img8:hover{
+        zoom: 100%;
+        margin-left: 55%;
+        margin-top: 39.8%;
+        transition: 400ms;
+        transform: scale(2); 
+        position: absolute;
+    }
+    .medalspic .img9{
+        margin-left: 55%;
+        margin-top: 67.8%;
+        border-radius: 2%;
+        transition: transform .4s;
+        transition: 400ms;
+        position: absolute;
+    }
+    .medalspic .img9:hover{
+        zoom: 100%;
+        margin-left: 55%;
+        margin-top: 67.8%;
+        transition: 400ms;
+        transform: scale(2); 
+        position: absolute;
+    }
 
-footer{
-    text-align: center;
-    margin-top: 113.8%;
-    margin-bottom: 0%;
-    height: 50px;
-    color: aliceblue;
-    background-color: #001121;
-    border-width: 1px 0px 0px 0px;
-    border-color: rgb(219, 232, 250);
-    border-style: solid;
-    display: flexbox;
+    footer{
+        text-align: center;
+        margin-top: 113.8%;
+        margin-bottom: 0%;
+        height: 50px;
+        color: aliceblue;
+        background-color: #001121;
+        border-width: 1px 0px 0px 0px;
+        border-color: rgb(219, 232, 250);
+        border-style: solid;
+        display: flexbox;
+    }
+}
+@media only screen and (max-width: 600px)  {
+    body {
+        font-family: 'Quicksand', sans-serif;
+        background: -moz-linear-gradient(#0099c3,#007a78) 50%, #0c1426; /* FF 3.6+ */  
+        background: -ms-linear-gradient(#0099c3, #007a78 50%, #0c1426); /* IE10 */  
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0099c3), stop(50%, #007a78), color-stop(100% #0c1426)); /* Safari 4+, Chrome 2+ */  
+        background: -webkit-linear-gradient(#0099c3, #007a78 50%, #0c1426); /* Safari 5.1+, Chrome 10+ */  
+        background: -o-linear-gradient(#0099c3, #007a78 50%, #0c1426); /* Opera 11.10 */  
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr=transparent); /* IE6 & IE7 */  
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr=transparent)"; /* IE8+ */  
+        background: linear-gradient(#0099c3, #007a78 50%, #0c1426); /* the standard */  
+        z-index: 1;
+    
+    }
+    nav{
+        display: inline;
+    }
+    .navbar {
+        overflow: hidden;
+        background-color: transparent;
+      }
+      
+      /* Links inside the navbar */
+      .navbar a {
+        float: left;
+        font-size: 16px;
+        color: transparent;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      /* The dropdown container */
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+      
+      /* Dropdown button */
+      .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0; 
+        transition: 3000ms;
+      }
+      
+      .navbar a:hover, .dropdown:hover .dropbtn {
+        font-size: 1.2em;
+        transition: 3000ms;
+      }
+      
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: transparent;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        float: none;
+        transition: 3000ms;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+      
+      /* Add a grey background color to dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: transparent;
+        text-shadow: 300px 0 300px 300px;
+        transition: 3000ms;
+      }
+      
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    ::-webkit-scrollbar {
+        width: 2px;
+    }
+      
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 1px;
+    }
+        ::-webkit-scrollbar-thumb {
+        background: rgb(0, 0, 0);
+        border-radius: 1px;
+    }
+    .intro {
+        text-align: left;
+        font-size: 1.45em;
+        width: 700px;
+        margin: 2em;
+    }
+    .descriptions{
+        text-align: left;
+        font-size: 1.45em;
+        width: 320%;
+        height: auto;
+        margin: 2em;
+    }
+    .ai{
+        padding: 0px 30px 300px 0px;
+        width: 320%;
+        position: absolute;
+    }
+    .coding{
+        padding: 380px 30px 300px 0px;
+        width: 320%;
+        position: absolute;
+    }
+    .reverse-engineering{
+        padding: 760px 30px 300px 0px;
+        width: 320%;
+        position: absolute;
+    }
+    .SciTech{
+        padding: 1140px 30px 300px 0px;
+        width: 320%;
+        background:(linear-gradient(url(https://metrohm.scene7.com/is/image/metrohm/laura-ockel-nIEHqGSymRU-unsplash?ts=1670395658188&dpr=off), url(Medalspic.png)));
+        position: absolute;
+    }
 }
 /*Sorry for my terribly repeatable code, I'll try improving it soon-ish.*/
