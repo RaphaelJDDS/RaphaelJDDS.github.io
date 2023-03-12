@@ -338,9 +338,10 @@
     font-family: 'Quicksand', sans-serif;
     padding: 0% 0% 420.5% 0%;
     background: #0099c3;
-    background: linear-gradient(#0099c3, #007a78 40%, #0c1426 90%);
+    background: linear-gradient(#0099c3, #007a78 30%, #0c1426 90%);
     z-index: 1;
     font-size: 1.7vh;
+    scroll-behavior: smooth;
     }
   
   nav {
@@ -353,7 +354,7 @@
   }
   
   .navbar a {
-    font-size: 2.9vh;
+    font-size: 2vh;
     color: inherit;
     text-align: center;
     padding: 1.54% 1.78%;
@@ -364,18 +365,18 @@
   }
   
   .dropdown .dropbtn {
-    font-size: 2.68vh;
+    font-size: 2vh;
     border: none;
     outline: none;
     padding: 1.54% 7.68%;
     background-color: inherit;
     font-family: inherit;
-    margin: 0;
+    margin-left: -10px;
     transition: 300ms;
   }
-  
+
   .navbar a:hover, .dropdown:hover .dropbtn {
-    font-size: 3.2vh;
+    font-size: 2.5vh;
     transition: 300ms;
   }
   
@@ -408,7 +409,7 @@
 
   .box{
     font-family: 'Source Code Pro', monospace;
-    color: aliceblue;
+    text-align: left;
     color: aliceblue;
     text-decoration: aliceblue;
     background-color: transparent;
@@ -436,13 +437,21 @@
     background: rgb(0, 0, 0);
     border-radius: 0.11%;
   }
-  
+  .main-title{
+    text-align: left;
+    font-size: 4vh;
+    margin: 0 0 2vw;
+    clear: left;
+    width: 100%px;
+    margin: 1.5em auto;
+    color: aliceblue;
+}
   .intro, .descriptions {
     padding: 0px 1.67% 1.67% 0px;
     text-align: left;
     font-size: 1.7vh;
     width: 94.44%;
-    margin-left: 2.22%;
+    margin-left: 2.22%;  
   }
   .subtitles{
     text-align: left;
@@ -463,27 +472,38 @@
   
   .ai, .coding, .reverse-engineering, .SciTech {
     padding: full;
-    width: 90%;
+    width: 90%;  
   }
   
   .ai {
     padding: 0% 0% 0% 0px;
     position: absolute;
-  }
+}
   
   .coding {
     padding: 120% 0% 0% 0%;
     position: absolute;
   }
-  
+  .descriptions .coding {
+    background: -webkit-linear-gradient(#000000 20%, aliceblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .reverse-engineering {
     padding: 220% 0% 0% 0;
     position: absolute;
+    background: -webkit-linear-gradient(#000000 5%, aliceblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   .SciTech {
     padding: 320% 0% 16.67% 0;
     position: absolute;
+    background: -webkit-linear-gradient(#000000 2%, aliceblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   .aipics {
@@ -519,8 +539,8 @@
     }
     footer{
         text-align: center;
-        margin-top: 430.5%;
-        margin-bottom: -430.5%;
+        margin-top: 437.5%;
+        margin-bottom: -437.5%;
         color: aliceblue;
         background: #0c1426;
         border-width: 0.06% 0 0 0;
