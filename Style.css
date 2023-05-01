@@ -351,17 +351,22 @@
   .navbar {
     overflow: hidden;
     background-color: inherit;
-  }
+      margin-left: 7%;
+    }
   
   .navbar a {
     font-size: 2vh;
     color: inherit;
     text-align: center;
     padding: 1.54% 1.78%;
+          margin-left: 7%;
+
   }
   
   .dropdown {
     overflow: hidden;
+          margin-left: 7%;
+
   }
   
   .dropdown .dropbtn {
