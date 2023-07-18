@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="Style.css"/>
+<head>
+    <meta-charset-utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="/favicon.png">
+    <title>Raphael-J.D.D.S</title>
+</head>
+<header>
+    <div class="box">
+        <nav>
+            <ul>
+                <div class="navbar">
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            Home
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="index.html">
+                                English
+                            </a>
+                            <a href="ja.html">               
+                                やまと
+                            </a>                    
+                            <a href="zh.html">               
+                                中文
+                            </a>                    
+                            <a href="de.html">               
+                                Deutsche
+                            </a>                    
+                            <a href="pt-br.html">               
+                                Português
+                            </a>
+                            <a href="es.html">               
+                                Español
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+    <div class="aimages">
+        <script>
+            // Set the path to the folder containing the images
+            const folderPath = 'images/';
+    
+            // Fetch the list of image files from the server
+            fetch(folderPath)
+                .then(response => response.text())
+                .then(text => {
+                    // Parse the response text as HTML
+                    const parser = new DOMParser();
+                    const html = parser.parseFromString(text, 'text/html');
+    
+                    // Get the list of image file names
+                    const imageFileNames = Array.from(html.querySelectorAll('a'))
+                        .map(a => a.href)
+                        .filter(href => href.endsWith('.jpg') || href.endsWith('.png'));
+    
+                    // Create an img element for each image file and add it to the gallery
+                    const gallery = document.querySelector('#gallery');
+                    for (const fileName of imageFileNames) {
+                        const img = document.createElement('img');
+                        img.src = folderPath + fileName;
+                        gallery.appendChild(img);
+                    }
+                });
+        </script>
+        </div>
+</body>

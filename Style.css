@@ -336,7 +336,7 @@
 @media only screen and (max-width: 900px) {
     body{
     font-family: 'Quicksand', sans-serif;
-    padding: 0% 0% 420.5% 0%;
+    padding: 0% 0% 435.5% 0%;
     background: #0099c3;
     background: linear-gradient(#0099c3, #007a78 30%, #0c1426 90%);
     z-index: 1;
@@ -351,6 +351,7 @@
   .navbar {
     overflow: hidden;
     background-color: inherit;
+    margin-left: 7%;
   }
   
   .navbar a {
@@ -358,10 +359,12 @@
     color: inherit;
     text-align: center;
     padding: 1.54% 1.78%;
+    margin-left: 7%;
   }
   
   .dropdown {
     overflow: hidden;
+    margin-left: 7%;
   }
   
   .dropdown .dropbtn {
@@ -371,7 +374,7 @@
     padding: 1.54% 7.68%;
     background-color: inherit;
     font-family: inherit;
-    margin-left: -10px;
+    margin-left: 7%;
     transition: 300ms;
   }
 
@@ -387,6 +390,7 @@
     min-width: 8.89%;
     box-shadow: 0px 0.44% 0.89% 0px rgba(0,0,0,0.2);
     z-index: 1;
+    margin-left: 7%;
   }
   
   .dropdown-content a {
@@ -395,16 +399,19 @@
     text-decoration: none;
     display: block;
     text-align: left;
+    margin-left: 7%;
   }
   
   .dropdown-content a:hover {
     background-color: transparent;
     text-shadow: 33.33% 0 33.33% 0px;
     transition: 300ms;
+    margin-left: 7%;
   }
   
   .dropdown:hover .dropdown-content {
     display: block;
+    margin-left: 7%;
   }
 
   .box{
@@ -501,13 +508,13 @@
   .SciTech {
     padding: 320% 0% 16.67% 0;
     position: absolute;
-    background: -webkit-linear-gradient(#000000 2%, aliceblue);
+    background: -webkit-linear-gradient(aliceblue, white);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   
   .aipics {
-    margin-left: 6.25%;
+    margin-left: -0.5vb;
     margin-top: 55%;
     border-radius: 5%;
     transition: transform .4s;
@@ -521,8 +528,9 @@
         transition: 400ms;
         position: absolute;
     }
+
     .decompilerpic .img8{
-        margin-left: 12.5%;
+        margin-left: 7.5%;
         margin-top: 245%;
         border-radius: 2%;
         transition: transform .4s;
@@ -530,17 +538,41 @@
         position: absolute;
     }
     .medalspic .img9{
-        margin-left: 12.5%;
+        margin-left: 7.5%;
         margin-top: 370%;
         border-radius: 2%;
         transition: transform .4s;
         transition: 400ms;
         position: absolute;
     }
+    .ja .codepic .img7{
+      margin-left: 7.5%;
+      margin-top: 155%;
+      border-radius: 2%;
+      transition: transform .4s;
+      transition: 400ms;
+      position: absolute;
+  }
+  .ja .decompilerpic .img8{
+    margin-left: 7.5%;
+    margin-top: 250%;
+    border-radius: 2%;
+    transition: transform .4s;
+    transition: 400ms;
+    position: absolute;
+}
+  	.ja .medalspic .img9{
+      margin-left: 7.5%;
+      margin-top: 376%;
+      border-radius: 2%;
+      transition: transform .4s;
+      transition: 400ms;
+      position: absolute;
+  }
     footer{
         text-align: center;
-        margin-top: 437.5%;
-        margin-bottom: -437.5%;
+        margin-top: 450.5%;
+        margin-bottom: -450.5%;
         color: aliceblue;
         background: #0c1426;
         border-width: 0.06% 0 0 0;
