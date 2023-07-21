@@ -319,6 +319,12 @@
         transform: scale(2); 
         position: absolute;
     }
+    .my-image {
+      width: 28.12vw;
+      height: 28.12vw;
+      border-radius: 2%;
+      margin: 1vw;
+    }
 
     footer{
         text-align: center;
@@ -568,6 +574,12 @@
       transition: transform .4s;
       transition: 400ms;
       position: absolute;
+  }
+  .my-image {
+    width: 28.12vw;
+    height: 28.12vw;
+    border-radius: 2%;
+    margin: 1vw;
   }
     footer{
         text-align: center;
