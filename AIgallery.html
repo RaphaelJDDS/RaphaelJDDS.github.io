@@ -52,12 +52,15 @@
             // Get the container element where the images will be displayed
             let container = document.getElementById('image-container');
             for (let i=0; i<images.length; i++) {
+                let a = document.createElement('a');
+                a.href = images[i];
                 let img = document.createElement('img');
                 img.src = images[i];
                 img.classList.add('my-image');
                 img.width = 200;
                 img.height = 200;
-                container.appendChild(img);
+                a.appendChild(img);
+                container.appendChild(a);
             }
         </script>
     </div>
