@@ -1,7 +1,15 @@
+:root {
+  --color1pc: #05172e;
+  --color2pc: #0c1426;
+  --color3pc: #001121;
+  --color1mo: #0099c3;
+  --color2mo: #007a78;
+  --color3mo: #0c1426;
+  }  
 @media only screen and (min-width:899px){
     body {
         font-family: 'Quicksand', sans-serif;
-        background: linear-gradient(#05172e, #0c1426, #001121);
+        background: linear-gradient(var(--color1pc), var(--color2pc), var(--color3pc));
         padding: full;
     }
     nav{
@@ -104,7 +112,7 @@
         font-family: 'Source Code Pro', monospace;	color: aliceblue;
         color: aliceblue;
         text-decoration: aliceblue;
-        background-color: #05172e;
+        background-color: var(--color1pc);
         border-bottom: 3000px;
         max-width: 3000%;
         max-height: 1300%;
@@ -353,31 +361,36 @@
       margin-bottom: 0%;
       height: 50px;
       color: aliceblue;
-      background-color: #001121;
+      background-color: var(--color3pc);
       border-width: 1px 0px 0px 0px;
       border-color: rgb(219, 232, 250);
       border-style: solid;
       display: flexbox;
     }
     footer{
-        text-align: center;
-        margin-top: 113.8%;
-        margin-bottom: 0%;
-        height: 50px;
-        color: aliceblue;
-        background-color: #001121;
-        border-width: 1px 0px 0px 0px;
-        border-color: rgb(219, 232, 250);
-        border-style: solid;
-        display: flexbox;
+      text-align: center;
+      margin-top: 113.8%;
+      margin-bottom: 0%;
+      height: 50px;
+      color: aliceblue;
+      background-color: var(--color3pc);
+      border-width: 1px 0px 0px 0px;
+      border-color: rgb(219, 232, 250);
+      border-style: solid;
+      display: flexbox;
+    }
+    footer a{
+      forced-color-adjust: revert;
+      color: #012a35 !important;
+      text-decoration:none;
     }
 }
 @media only screen and (max-width: 900px) {
    body.dynamic-body{
     font-family: 'Quicksand', sans-serif;
     padding: 0% 0% auto 0%;
-    background: #0099c3;
-    background: linear-gradient(#0099c3, #007a78 30%, #0c1426 90%);
+    background: var(--color1mo);
+    background: linear-gradient(var(--color1mo), var(--color2mo) 30%, #0c1426 90%);
     z-index: 1;
     font-size: 1.7vh;
     scroll-behavior: smooth;
@@ -385,8 +398,8 @@
   .static-body{
     font-family: 'Quicksand', sans-serif;
     padding: 0% 0% 435.5% 0%;
-    background: #0099c3;
-    background: linear-gradient(#0099c3, #007a78 30%, #0c1426 90%);
+    background: var(--color1mo);
+    background: linear-gradient(var(--color1mo), var(--color2mo) 30%, #0c1426 90%);
     z-index: 1;
     font-size: 1.7vh;
     scroll-behavior: smooth;
@@ -652,18 +665,23 @@
     margin-top: auto;
     margin-bottom: 0;
     color: aliceblue;
-    background: #0c1426;
+    background: var(--color3mo);
     border-width: 0.06% 0 0 0;
     border-color: rgba(0, 0,0, 0);
     border-style: solid;
     display: flexbox;
+  }
+  footer a{
+    forced-color-adjust: revert;
+    color: #002b5d !important;
+    text-decoration:none;
   }
   footer{
       text-align: center;
       margin-top: 450.5%;
       margin-bottom: -450.5%;
       color: aliceblue;
-      background: #0c1426;
+      background: var(--color3mo);
       border-width: 0.06% 0 0 0;
       border-color: rgba(0, 0,0, 0);
       border-style: solid;
