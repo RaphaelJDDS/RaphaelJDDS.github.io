@@ -5,15 +5,48 @@
   --color1mo: #0099c3;
   --color2mo: #007a78;
   --color3mo: #0c1426;
+  --linkcolor:#347acb;
+  --linkcolormo: #006ba5;
+  --margin-top: 0 50%;
   }  
+  
 @media only screen and (min-width:899px){
     body {
         font-family: 'Quicksand', sans-serif;
         background: linear-gradient(var(--color1pc), var(--color2pc), var(--color3pc));
         padding: full;
     }
+    .box{
+      font-family: 'Source Code Pro', monospace;	color: aliceblue;
+      color: aliceblue;
+      text-decoration: aliceblue;
+      background-color: var(--color1pc);
+      top:0;
+      padding-right:0%;
+      border-bottom: 3000vw;
+      max-width: 3000%;
+      max-height: 1300%;
+      margin-top: -9px;
+      margin-left:-3%;
+      border-width: 0px 0px 1px 0px;
+      border-color: rgb(219, 232, 250);
+      border-style: solid;
+      display: block;
+      position: fixed;
+      z-index: 1030;
+  }
     nav{
         display: inline;
+        position: inherit;
+        border:inherit;
+        border: inherit;
+        background-color: inherit;
+        padding-right: 85.6vw;
+        margin-right: -85.6vw;
+
+    }
+    #Nav-for-posts{
+      margin-right: -20vw;
     }
     .navbar {
         overflow: hidden;
@@ -36,16 +69,17 @@
         overflow: hidden;
     }
     
-    /* Dropdown button */
+    /* Dropdown button ("home" or "languages") */
     .dropbtn{
       font-size: 1.3em;
       border: none;
       outline: none;
-      color: aliceblue;
+      color: aliceblue !important;
       padding: 14px 16px;
       background-color: inherit;
       font-family: inherit;
       margin: 0; 
+      margin-left: 1em;
       transition: 300ms;
     }
     .gallery-button{
@@ -56,10 +90,19 @@
       border: none;
       outline: none;
       transition: 300ms;
+    } 
+    .publications-button{
+      font-size: 1.3em;
+      color: inherit;
+      text-decoration: none;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      transition: 300ms;
     }
     
     .navbar a:hover, .dropbtn:hover {
-        font-size: 1.6em;
+        font-size: 1.3em;
         color: aliceblue;
         transition: 300ms;
     }
@@ -108,22 +151,6 @@
         background: rgb(0, 0, 0);
         border-radius: 1px;
     }
-    .box{
-        font-family: 'Source Code Pro', monospace;	color: aliceblue;
-        color: aliceblue;
-        text-decoration: aliceblue;
-        background-color: var(--color1pc);
-        border-bottom: 3000px;
-        max-width: 3000%;
-        max-height: 1300%;
-        margin-top: -9px;
-        margin-left:-3%;
-        margin-right: -0.55%;
-        border-width: 0px 0px 1px 0px;
-        border-color: rgb(219, 232, 250);
-        border-style: solid;
-        display: flexbox;
-    }
     .main-title{
         text-align: left;
         font-size: 4em;
@@ -148,6 +175,12 @@
         position: static;
         min-height: 25px;
     }
+    .typewriter p {
+      font-family: monospace;
+      white-space: pre;
+      visibility: hidden;
+      flex-wrap: wrap;
+  }
     .descriptions{
         text-align: left;
         font-size: 1.45em;
@@ -155,6 +188,29 @@
         color: aliceblue;
         height: auto;
         margin: 2em;
+    }
+    #main-content{
+      margin-top: 15vh;
+    }
+    .publication-content{
+      text-align: left;
+      font-size: 1.45em;
+      width: auto;
+      color: aliceblue;
+      height: auto;
+      margin: 3em;
+    }
+    p.publication-content{
+      line-height: 1.1em;
+      margin-bottom: 2em;
+    }
+
+    #DateAndTime{
+      margin-left: 15vw;
+      color: aliceblue;
+      font-family: monospace;
+      font-size: 1em;
+      font-style: italic;
     }
     .ai{
         padding: 0px 30px 300px 0px;
@@ -192,6 +248,8 @@
         position: absolute;
         z-index: 1;
         display: flex;
+        width: auto;
+        height: 15vh;
     }
     .aipics .img2{
         margin-left: 65%;
@@ -203,6 +261,8 @@
         position: absolute;
         display: flex;
         z-index: 2;
+        width: auto;
+        height: 15vh;
     }
         .aipics .img3{
         margin-left: 50%;
@@ -214,6 +274,8 @@
         position: absolute;
         z-index: 0;
         display: flex;
+        width: auto;
+        height: 15vh;
     }
     .aipics .img1:hover{
         zoom: 100%;
@@ -337,6 +399,7 @@
         position: absolute;
     }
     #image-container{
+      padding-top: 10vw;
       margin-left: 3vw;
     }
     .my-image {
@@ -355,11 +418,45 @@
       transition: 225ms;
       z-index: 2;
     }
+    .publication-title{
+      margin-bottom: auto;
+      margin-left: 5em;
+      display: flex;
+      z-index: 4;
+    }
+    .postslist-title{
+      color: var(--linkcolor);
+    }
+
+    #publication-image{
+      height: auto;
+      width: 16vw;
+      margin-bottom: 20vh;
+      margin-top: 4vh;
+      /*The margin-left value is given by the formula m = (50-width/2) if the image is to be held in the center*/
+      margin-left: 42vw;
+      margin-right: 2vw;
+      border-radius: 1%;
+    }
+    .publication-image-descriptor{
+      text-align:center;
+      color: aliceblue;
+      font-style: italic;
+      font-family: monospace;
+      padding-left:8vw;
+      padding-right: 8vw;
+      /*The margin-top value shall be negative if the #publication-image's margin-bottm value is too great.*/
+      margin-top: -19vh;
+    }
+    #not-footer{
+      z-index:1;
+    }
+
     .dynamicgen{
       text-align: center;
       margin-top: auto;
       margin-bottom: 0%;
-      height: 50px;
+      height: 4.62962963;
       color: aliceblue;
       background-color: var(--color3pc);
       border-width: 1px 0px 0px 0px;
@@ -381,16 +478,29 @@
     }
     footer a{
       forced-color-adjust: revert;
-      color: #012a35 !important;
+      color: #044152 !important;
       text-decoration:none;
+    }
+    #publication-footer{
+      margin-top: 13vh;
+      z-index: 0;
+    }
+    #publication-list-footer{
+      margin-top:73vh;
+    }
+    .dark-link{
+      color: var(--linkcolormo);
+    }
+    .bright-link{
+      color: var(--linkcolor);
     }
 }
 @media only screen and (max-width: 900px) {
    body.dynamic-body{
     font-family: 'Quicksand', sans-serif;
     padding: 0% 0% auto 0%;
-    background: var(--color1mo);
-    background: linear-gradient(var(--color1mo), var(--color2mo) 30%, #0c1426 90%);
+    background: var(--color1pc);
+    background: linear-gradient(var(--color1pc), var(--color2pc) 30%, #0c1426 90%);
     z-index: 1;
     font-size: 1.7vh;
     scroll-behavior: smooth;
@@ -398,20 +508,26 @@
   .static-body{
     font-family: 'Quicksand', sans-serif;
     padding: 0% 0% 435.5% 0%;
-    background: var(--color1mo);
-    background: linear-gradient(var(--color1mo), var(--color2mo) 30%, #0c1426 90%);
-    z-index: 1;
+    background: var(--color1pc);
+    background: linear-gradient(var(--color1pc), var(--color2pc) 30%, #0c1426 90%);
+    z-index: 0;
     font-size: 1.7vh;
     scroll-behavior: smooth;
     }
-  nav {
-    display: inline;
+    nav{
+      display: inline;
+      position: inherit;
+      border:inherit;
+      border: inherit;
+      background-color: inherit;
+      padding-right: 85.6vw;
+      margin-right: -85.6vw;
   }
   
   .navbar {
     overflow: hidden;
     background-color: inherit;
-    margin-left: 7%;
+    margin-left: 10%;
   }
   
   .navbar a {
@@ -419,27 +535,32 @@
     color: inherit;
     text-align: center;
     padding: 1.54% 1.78%;
-    margin-left: 7%;
+    margin-left: 10%;
   }
   
   .dropdown {
     overflow: hidden;
-    margin-left: 7%;
+    margin-left: 10%;
   }
   
   .dropdown .dropbtn {
+    position: absolute;
+    display: flex;
     font-size: 2vh;
+    color:aliceblue;
     border: none;
     outline: none;
-    padding: 1.54% 7.68%;
+    padding: 1.54% 8%;
+    margin-top: -1.54%;
     background-color: inherit;
     font-family: inherit;
-    margin-left: 7%;
+    top:0;
+    margin-left: 1vw;
     transition: 300ms;
   }
 
   .navbar a:hover, .dropdown:hover .dropbtn {
-    font-size: 2.5vh;
+    font-size: 2.25vh;
     transition: 300ms;
   }
   
@@ -450,7 +571,8 @@
     min-width: 8.89%;
     box-shadow: 0px 0.44% 0.89% 0px rgba(0,0,0,0.2);
     z-index: 1;
-    margin-left: 7%;
+    margin-top: 3%;
+    margin-left: 13vw;
   }
   
   .dropdown-content a {
@@ -459,14 +581,14 @@
     text-decoration: none;
     display: block;
     text-align: left;
-    margin-left: 7%;
+    margin-left: 13vw;
   }
   
   .dropdown-content a:hover {
     background-color: transparent;
     text-shadow: 33.33% 0 33.33% 0px;
     transition: 300ms;
-    margin-left: 7%;
+    margin-left: 13vw;
   }
   
   .dropdown:hover .dropdown-content {
@@ -475,16 +597,33 @@
   }
   .gallery-button{
     position: absolute;
-    margin-top: -6.4%;
-    margin-left: -15vw;
+    margin-left: -4vw;
     font-family: inherit;
-    font-size: 1.3em;
     background-color: transparent;
     border: none;
     outline: none;
     text-decoration: none;
     transition: 300ms;
+    top:0;
   }
+  .publications-button{
+    position: absolute;
+    margin-left: 46vw;
+    font-family: inherit;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    transition: 300ms;
+    top:0;
+  }
+  .dark-link{
+    color: var(--linkcolormo);
+  }
+  .bright-link{
+    color: var(--linkcolor);
+  }
+
   .box{
     font-family: 'Source Code Pro', monospace;
     text-align: left;
@@ -494,14 +633,24 @@
     border-bottom: 166.67%;
     max-width: 333.33%;
     max-height: 72.22%;
-    margin-top: -0.5%;
+    top:0;
     margin-left: -0.33%;
     margin-right: -0.06%;
+    margin-top: 3vh;
     border-width: 0 0 0.06vh;
     border-color: rgb(219, 232, 250);
     border-style: solid;
     display: flexbox;
+    position: fixed;
+    z-index: 4;
+    font-size: 1.3em;
 }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+      margin-left: 7%;
+    }
+
   ::-webkit-scrollbar {
     width: 0.22%;
   }
@@ -517,7 +666,7 @@
   }
   .main-title{
     text-align: left;
-    font-size: 4vh;
+    font-size: 6vw;
     margin: 0 0 2vw;
     clear: left;
     width: 100%px;
@@ -539,6 +688,11 @@
     position: static;
     min-height: 10vh;
 }
+.typewriter p {
+  font-family: monospace;
+  visibility: hidden;
+  flex-wrap: wrap;
+}
 
   .descriptions {
     display: flex;
@@ -546,6 +700,7 @@
   }
   .intro{
     padding: 0% 0% -16.7% 0%;
+    COLOR: whitesmoke;
   }
   
   .ai, .coding, .reverse-engineering, .SciTech {
@@ -556,32 +711,25 @@
   .ai {
     padding: 0% 0% 0% 0px;
     position: absolute;
+    color: whitesmoke;
 }
   
   .coding {
     padding: 120% 0% 0% 0%;
     position: absolute;
-  }
-  .descriptions .coding {
-    background: -webkit-linear-gradient(#000000 20%, aliceblue);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: whitesmoke;
   }
 
   .reverse-engineering {
     padding: 220% 0% 0% 0;
     position: absolute;
-    background: -webkit-linear-gradient(#000000 5%, aliceblue);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: aliceblue;
   }
   
   .SciTech {
     padding: 320% 0% 16.67% 0;
     position: absolute;
-    background: -webkit-linear-gradient(aliceblue, white);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: aliceblue;
   }
   
   .aipics {
@@ -590,19 +738,21 @@
     border-radius: 5%;
     transition: transform .4s;
     position: absolute;
+    height: auto;
+    width:115vw;
     }
     .codepic .img7{
         margin-left: 12.5%;
-        margin-top: 150%;
+        margin-top: 155%;
         border-radius: 2%;
         transition: transform .4s;
         transition: 400ms;
-        position: absolute;
+        position: relative;
     }
 
     .decompilerpic .img8{
         margin-left: 7.5%;
-        margin-top: 245%;
+        margin-top: 55%;
         border-radius: 2%;
         transition: transform .4s;
         transition: 400ms;
@@ -610,7 +760,7 @@
     }
     .medalspic .img9{
         margin-left: 7.5%;
-        margin-top: 370%;
+        margin-top: 185%;
         border-radius: 2%;
         transition: transform .4s;
         transition: 400ms;
@@ -660,6 +810,60 @@
     transition: 225ms;
     z-index: 1;
   }
+  #DateAndTime{
+    margin-left: 15vw;
+    color: aliceblue;
+    font-family: monospace;
+    font-size: 0.675em;
+    font-style: italic;
+  }
+  #publication-image{
+    height: auto;
+    width: 48vw;
+    margin-bottom: 12vh;
+    margin-top: 12vh;
+    /*The margin-left value is given by the formula (50-width/2) if the image is to be held in the center*/
+    margin-left: 26vw;
+    margin-right: 2vw;
+    border-radius: 1%;
+  }
+  .publication-image-descriptor{
+    font-size: 0.675em;
+    text-align:center;
+    color: aliceblue;
+    font-style: italic;
+    font-family: monospace;
+    padding-left:8vw;
+    padding-right: 8vw;
+    /*The margin-top value shall be negative if the #publication-image's margin-bottm value is too great.*/
+    margin-top: -11vh;
+  }
+  #main-content{
+    margin-top: 15vh;
+  }
+  .publication-title{
+    margin-bottom: auto;
+    margin-left: 2em;
+    display: flex;
+    z-index: 4;
+  }
+  .publication-content{
+    text-align: left;
+    font-size: 1em;
+    width: auto;
+    color: aliceblue;
+    height: auto;
+    margin: 1em;
+  }
+  p.publication-content{
+    line-height: 1.1em;
+    margin-bottom: 2em;
+  }
+  .postslist-title{
+    color: var(--linkcolormo);
+    font-size: 0.75em;
+    /*This element is for the <a> tag of the title, so DO NOT EDIT IT UNLESS YOU WANT TO COLOR IT!*/
+  }
   .dynamicgen{
     text-align: center;
     margin-top: auto;
@@ -687,8 +891,12 @@
       border-style: solid;
       display: flexbox;
   }
+  #publication-footer{
+    margin-top: 12vh;
+  }
+  #publication-list-footer{
+    margin-top:76vh;
+  }
 }
     
-    
-    
-/*Sorry for my terribly repetitive code, I'll try improving it soon-ish.*/
+/*Sorry for my terribly repetitive/boilerplate-ridden code, I'll try improving it soon-ish.*/

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="Style.css"/>
+<html>
 <head>
+    <link rel="stylesheet" href="Style.css"/>
     <meta-charset-utf-8>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="/favicon.png">
-    <title>Raphael-J.D.D.S</title>
+    <link rel="icon" type="image/jpg" href="/favicon.jpg">
+    <title>Raphael-J.D.D.S | Posts</title>
     <meta name="google-site-verification" content="_7FfF4s0J_SeFssZWrzJSs1QVdFYXAId8UwRyBoYP6c" />
 </head>
 <header>
@@ -14,81 +14,75 @@
         <nav>
             <ul>
                 <div class="navbar">
-                    <div class="dropdown">
-                        <button class="dropbtn">
-                            Languages
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="ja.html">               
-                                やまと
-                            </a>                    
-                            <a href="zh.html">               
-                                中文
-                            </a>                    
-                            <a href="de.html">               
-                                Deutsche
-                            </a>                    
-                            <a href="pt-br.html">               
-                                Português
-                            </a>
-                            <a href="es.html">               
-                                Español
-                            </a>
-                        </div>
-                    </div>
-                    <button class="gallery-button" href="AIgallery.html" class="gallery-button">
-                        <a href="AIgallery.html" class="gallery-button" style="color: aliceblue; background-color: transparent;">
-                            Gallery
+                    <div class="dropdown">                        
+                    <button href="posts.html" class="publications-button" style="margin-left:1em;">
+                        <a href="posts.html" class="publications-button" style="color: aliceblue; background-color: transparent;">
+                            Publications
                         </a>
-                    </button>
                 </div>
             </ul>
         </nav>
     </div>
 </header>
-<body class="static-body">
-    <p class = main-title>Hello!</p>
-    <p class="intro">&ensp;My name is Raphael J.D.D.S., I'm a high school student currently interested in learning about AI, development (coding, mainly), malware reverse engeneering, science and technology in general.</p>
-    <div class="subtitles">
-        <p class="ai">AI</p>
-        <p class="coding">Coding & programming</p>
-        <p class="reverse-engineering"><strong>Malware</strong> reverse engineering</p>
-        <p class="SciTech">Science and technology</p>
+<body class="dynamic-body">
+    <div id="main-content">
+        <div class="typewriter">
+            <p class="main-title" style="font-size:5em;">Hello!                </p>
+            <p class="intro">&ensp; I'm Raphael Jones, and welcome to my
+website (I'll try not leaving it hopelessly abandoned)!
+            </p>
+            <p class="intro">>Here are some pages you may be keen on visiting:</p>
+            <a class="intro" href="posts.html">
+                <p>Publications [BETA]</p>
+            </a>
+            <a class="intro" href="https://github.com/RaphaelJDDS">
+                <p>GitHub</p>
+            </a>
+            <a class="intro" href="https://instagram.com/rapha.jdds">
+                <p>Instagram</p>
+            </a>
+        </div>
+
+        <script>
+        var renderingTime = 70; // Character rendering time (ms)
+
+        function typeWriter(element, callback) {
+        var text = element.textContent;
+        var i = 0;
+
+        function type() {
+            if (i < text.length) {
+            element.textContent = text.slice(0, i+1);
+            element.style.visibility = 'visible';
+            i++;
+            setTimeout(type, renderingTime);
+            } else {
+            callback();
+            }
+        }
+
+        type();
+        }
+
+        function startAnimation() {
+        var paragraphs = Array.from(document.querySelectorAll('.typewriter p'));
+        var i = 0;
+
+        function nextParagraph() {
+            if (i < paragraphs.length) {
+            typeWriter(paragraphs[i], nextParagraph);
+            i++;
+            }
+        }
+
+        nextParagraph();
+        }
+
+        window.onload = startAnimation; // Start the animation when the window loads
+        </script>
+        <div class="footer-wrapper">
+            <footer class="dynamicgen" id="publication-list-footer"><br>◎©Raphael Jones Dias Da Silva - 2024 (12024He)<br><a href="https://github.com/RaphaelJDDS">GitHub </a> <strong>·</strong> <a href="https://instagram.com/rapha.jdds"> Instagram</a></footer>
+        </div>
     </div>
-    <div class="descriptions">
-        <p class="ai">&ensp;With regards to the first topic, AI (a very broad one if you ask me), I'm currently learning how to properly use StableDiffusion
-        and Dreambooth to generate art, look at those awesome samples (some of which containing not-so-awesome people) right there!
-        <br>&ensp; Apart from that area, I have interests in other applications for basic dynamic AIs and neural networks, such as language models (which, in this context, excludes LLMs, although I also have interest in them) and predictions for management and reccomendation.</p>
-        <p class="coding">&ensp;Well, I'm trying to acquire a decent experience level in varied areas of coding & programming. 
-        I've recently learned HTML, CSS, JavaScript and I'm working to follow the path of system languages (e.g. C, C++ and Rust). 
-        One of my most recent coding projects is the very making of this simple website.</p>
-        <p class="reverse-engineering">&ensp;More recently, I got interested with the field of malware reverse engineering, mainly since I was initially surprised with the concept of decompling.
-        My progress in this area has mainly been focused on learning IDA software and Hex converters (I really liked ImHex).</p>
-        <p class="SciTech">&ensp;What is there to say, this is my oldest passion and one of my favorites. In this (very broad) field, I'm currently interested in learning more about semiconductor engineering
-        (a herculeous task), physics, chemistry, solar energy semiconductors and computer science in general. <br>&ensp; In some scientific fields, I have earned a few prizes, 
-        including the Brazilian Astronomy Olympiad (2 gold medals), the National Sciences Olympics (a silver medal) and the Brazilian Chemistry Olympics (a bronze medal)</p>
-        <p></p>
-    </div>
-    <div class="images">
-        <div class="aipics">
-            <img class="img1" src="Xi.jpg" alt="Prompt: A picture of Xi Jinping and Vladimir Puting fighting Judo against each other, aesthetic, low contrast, low saturation, Grzegorz Rutkowski." width="112.5vw" height="112.5vh">
-            <img class="img2" src="Trump.jpg" alt="Prompt: A picture of Donald Trump fighting jufo against Xi Jinping and Vladimir Putin, low contrast, low saturation, aesthetic" width="112.5vw" height="112.5vh">        
-            <img class="img3" src="CyberpunkMegacity.jpg" alt="Prompt: n" width="112.5vw" height="112.5vh">        
-        </div>
-        <div class="codepic">
-            <img class="img7" src="websitecodingpic.jpg" alt="A picture of my VScode during the development of this very website." height="150vh" width="266vw">
-        </div>
-        <div class="decompilerpic">
-            <img class="img8" src=" Idapic.jpg" alt="A picture of IDA freeware running" height="150vh" width="266vw">
-        </div>
-        <div class="medalspic">
-            <img class="img9" src="Medalspic.png" alt="A picture of some of my recent awards" height="150vh" width="266vw">
-        </div>
-    </div>
-    <footer><br>◎©Raphael Jones Dias Da Silva - 2023 (12023He)<br><a href="https://github.com/RaphaelJDDS">GitHub </a> <strong>·</strong> <a href="https://instagram.com/rapha.jdds"> Instagram</a></footer>
 </body>
-<script>
-</script>
 </html>
-<!-- Sorry for my terrible code, I'll try improving it soon-ish.-->

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../Style.css"/>
+<head>
+    <meta-charset-utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="/favicon.png">
+    <title>Publications | Raphael</title>
+    <meta name="google-site-verification" content="_7FfF4s0J_SeFssZWrzJSs1QVdFYXAId8UwRyBoYP6c" />
+</head>
+<body class = "dynamic-body">
+    <header>
+        <div class="box">
+            <nav id="Nav-for-posts">
+                <ul>
+                    <div class="navbar">
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <a href="../index.html" style="color: aliceblue; background-color: transparent;">
+                                    Home
+                                </a> 
+                            </button>
+                        <button href="../posts.html" class="publications-button">
+                            <a href="../posts.html" class="publications-button" style="color: aliceblue; background-color: transparent; margin-top:-0.75em;">
+                                Other publications
+                            </a>
+                        </button>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id ="main-content"></div> <!--Ingenious spacing lol-->
+        <p class = "main-title" style = "text-align: center;"> [PROJECT] Ecological simulation program </p>
+        <!--Textual body under the "publication-content" class; The "DateAndTime" id just sets some specifics.-->
+        <p class = "publication-content" id = "DateAndTime">Published on 2/18/2024, 5:19 Pm (GMT).</p>
+        <p class = "publication-content">&ensp; This page is the announcement of the completion of a dynamic systems
+        simulation program. The program essentially consists of a multi-parameter ecological simulation, where the
+        competition between two (fairly simple) strategies can take place.
+        <br></br>&ensp; It can be found in and downloaded from
+        <a href="https://github.com/RaphaelJDDS/ecological-simulation-1" class="bright-link">this</a> repository, having to be compiled in G++ after installation. 
+        Here are some plots made from a few of my early tests (each with a different configuration):
+
+             
+        </p>
+        <!--Image(s)-->
+        <div class="publication-image" id="not-footer">
+            <script>
+                    var images = [{
+                            "image_desc": "My first-ever (and least ridiculous) test run, 'guess there's a clear winner.",
+                            "src": "../images/graph-image-1.png",
+                        },
+                        {
+                            "image_desc": "Also has a clear winner, though nobody got wiped out.",
+                            "src": "../images/graph-image-2.png",
+                        },
+                        {
+                            "image_desc": "No extinctions as well, but... Yeah.",
+                            "src": "../images/graph-image-3.png",
+                        },
+                    ];
+
+                window.onload = function() {
+                var content = document.getElementById('not-footer');
+                images.forEach(function(image) {
+                    var img = document.createElement('img');
+                    var p = document.createElement('p');
+                    img.id = 'publication-image';
+                    img.src = image.src;
+                    img.alt = image.image_desc;
+                    content.appendChild(img);
+                    //Image descriptor
+                    var image_desc = document.createElement('p');
+                    image_desc.className = 'publication-image-descriptor'
+                    image_desc.textContent = image.image_desc;
+                    content.appendChild(image_desc);
+                    });
+                };
+            </script>
+        </div>
+        <div class = "footer-wrapper"> <!--Sets a dummy space for the wrapper, hence allowing the establishment of a margin atop it, equivalent to a margin from the end of the content field (i.e. "publication-content").-->
+            <footer class = "dynamicgen" id="publication-footer"><br>◎©Raphael Jones Dias Da Silva - 2024 (12024He)<br><a href="https://github.com/RaphaelJDDS">GitHub </a> <strong>·</strong> <a href="https://instagram.com/rapha.jdds"> Instagram</a></footer>
+        </div>
+    </body>
+</html>
