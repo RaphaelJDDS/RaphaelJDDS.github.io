@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../Style.css"/>
+<head>
+    <meta-charset-utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="/favicon.png">
+    <title>Publications | Raphael</title>
+    <meta name="google-site-verification" content="_7FfF4s0J_SeFssZWrzJSs1QVdFYXAId8UwRyBoYP6c" />
+</head>
+<body class = "dynamic-body">
+    <header>
+        <div class="box">
+            <nav id="Nav-for-posts">
+                <ul>
+                    <div class="navbar">
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <a href="../index.html" style="color: aliceblue; background-color: transparent;">
+                                    Home
+                                </a> 
+                            </button>
+                        <button href="../posts.html" class="publications-button">
+                            <a href="../posts.html" class="publications-button" style="color: aliceblue; background-color: transparent; margin-top:-0.75em;">
+                                Other publications
+                            </a>
+                        </button>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id ="main-content"></div> <!--Ingenious spacing lol-->
+        <p class = "main-title" style = "text-align: center;"> [PROJECT] Designing an induction radial-flow BLDC motor </p>
+        <!--Textual body under the "publication-content" class; The "DateAndTime" id just sets some specifics.-->
+        <p class = "publication-content" id = "DateAndTime">Published on 1/21/2025, 10:53 Pm (GMT).</p>
+        <p class = "publication-content">&ensp; Initially, "Learning the basics of Microcontrollers, Assembly programming, PWM, circuitry and
+        PCB design, part development and induction motor operation in order to design one." seemed like an appropriate title. 
+        But that would've been too long. This page is long as well. If you want to skip the details, visit 
+        <a class="bright-link" href="https://github.com/RaphaelJDDS/I_BLDC_1">this folder.</a>
+        <br></br>&ensp;This article - for the sake of organization - is divided into broad operational sections. As a side note, this project's been a literal nightmare, with many obstacles along the way. Enjoy reading me trying to
+        explain it. 
+        <br></br>&ensp; <br></br>&ensp; <strong> System architecture </strong>
+        <br></br>&ensp; <br></br>&ensp; A nice way to introduce the chosen architecture is by examining how an induction motor
+        works <i> in principle </i>, and building up requirements from there. Basically, the device functions by rotating a 
+        magnetic field around a freely-rotating conductor. How does that <i> possibly spin the conductor </i>? Simple. The change
+        in magnetic field will trigger a current inside the core conductor (i.e. the rotor), such that it creates an opposing magnetic field.
+        Or, you may want to use the right-hand rule, and you'll find that the force will appear tangent to the rotor, triggering the 
+        rotation, as it is perpendicular to the current (flowing length-wise, or axially) and the magnetic flux (radial), as [F] = I*[L]x[B].
+        <br></br>&ensp;Now that that's settled, how is it possible to create a rotating magnetic field without using fancy sensors
+        and ICs to trigger electromagnets? That's a little less straightforward. Essentially: If you wind up three coils of wire
+        around a core, and evenly space them along a certain circumference, and pass three AC signals with phases offset by 2π/3,
+        the fields induced by the current add up and cancel out into a single, rotating magnetic field.
+        <br></br>&ensp;Now, all that is left is how to, from an DC signal, generate the three phase-offset AC signals. That's
+        when a little creativity is needed. As for how, I went with programming a PWM into a PIC10F200 IC, and using the
+        CD4017SA IC as a three-way phase splitter. PWM stands for Pulse-Width modulation, and what it does is vary the length
+        of constant-voltage pulses, so that they smoothen out to a sinusoid by passing them thorugh capacitors (for current) and
+        inductors. And that's basically it as for system architecture.
+        <br></br>&ensp; <br></br>&ensp; <strong> Circuit design </strong>
+        <br></br>&ensp; <br></br>&ensp; As shown in the system architecture section, two ICs were chosen, and a voltage of
+        5V was required. The only problem was that I would've overrun current limits had I used the AC directly from the 
+        phase splitter to power the coils, and thus it required to be wired up with transistors as shown:
+    </p>
+
+    <img src = ../images/Induction_motor_diagram.png id = "publication-image" id = "not-footer">
+    <p class=" publication-image-descriptor">Schematic for the circuit, note how the FSZT ICs are NPN, whilst the ZTXs are PNP.</p>
+    
+    <p class = "publication-content"><br>&ensp;Other than the addition of a 100nF decoupling capacitor (to prevent overcurrent due to
+    electromagnetic noise and induction), there isn't much that is remarkable to talk about on this front. Note that "Induction coil"
+    is a mere placename for where the (generic) spools would be connected/soldered.
+    <br></br>&ensp; <br></br>&ensp; <strong> PCB design </strong>
+    <br></br>&ensp; <br></br>&ensp; Talking about PCBs, you'll see three main objectives: Minimizing the number of layers
+    (preferrably down to two), reducing trace length/using decoupling capacitors (preventing EMI/EMP) and maximizing trace
+    thickness (reducing resistance, particulatly in power-carrying cases). In this case, the circuit is fairly simple, and thus
+    all requirements were easy to deal with due to wide tolerances (e.g. AC signal noise was irrelevant). Still, distributing the
+    elements was the hardest task, as that determines how complicated the traces will need to be.
+    <br></br>&ensp; I also took the care to minimize board size, whilst trying to avoid cramping elements to simplify soldering.
+    The compromises I made, along with my distinct lack of expertise, resulted in the following board:</p>
+    
+    <img src = ../images/PCB_Induction-DC-motor.svg id = "publication-image" id = "not-footer">
+    <p class=" publication-image-descriptor">As you can see, some traces are thicker than others, as power-transmission ones were
+    in need of lower resistances (in order to maximize current) than their merely AC signal-carrying counterparts    </p>
+
+    <p class = "publication-content"><br></br>&ensp; <br></br>&ensp; <strong> Programming the PIC MCU </strong>
+    <br></br>&ensp; <br></br>&ensp;This has to be one of the coolest parts. Remember the PWM? The microcontroller has to deliver
+    a varying electrical duty cycle, which in code is synonymous with varying delays to turn an output
+    (e.g. GP1/General-purpose 1 pin) on (+5V/VCC) and off (GND).
+    <br></br>&ensp; As for implementation, the main hurdle is writing in assembly, a very low-level language, meaning "time"
+    is not in-built, and so variable-length instruction loops are to be introduced. The final solution achieved can be found 
+    <a class="bright-link" href="https://gist.github.com/RaphaelJDDS/6c7547ff25c07a9e2aab92b173b2b125">here</a>. Remember the code was
+    written to be compiled by MPASM (only available for MPLAB v5.35 or earlier).</p>
+    
+    <img src = ../images/PWM_MPASM.svg id = "publication-image" id = "not-footer">
+    <p class=" publication-image-descriptor">Assembly language is pretty technical, undortunately commenting doesn't make the mnemonics and
+    logic justice. </p>
+    
+    <p class="publication-content"><br></br>&ensp; As for configuring the PIC, you can connect it to a PICKIT (any model) and connect the latter to a computer running
+    the MPLAB IDE (by Microchip), where the code should be compiled.
+    <br></br>&ensp; <br></br>&ensp; <strong> Designing the mechanical components</strong>
+    <br></br>&ensp; <br></br>&ensp; This was the last section of my development process. Essentially, there are three main mechanical
+    parts in the device, a stator (which stays in place, with the windings), a rotor (which rotates) and a roller bearing (to attach the rotor
+    while allowing it to spin).
+    <br></br>&ensp;The stator, hence, has to provide attachments for the windings, and be cilindrical. The design I ended up with was
+    the following:
+    </p>
+
+    <img src = ../images/Stator_Induction_motor_1.png id = "publication-image" id = "not-footer">
+
+    <p class=" publication-image-descriptor"><br></br>&ensp; Other than the plastic atatchments to the bearing, it's a pretty plain design. 
+    Remember the copper windings are to be 120 degrees apart.</p>
+    <p class="publication-content">Meanwhile, the roller bearings are fairly standard, also being possible to make them out of plastic:</p>       
+    
+    <img src = ../images/RB_Induction_motor_1.png id = "publication-image" id = "not-footer">
+    <p class=" publication-image-descriptor"> The other side has the fittings for the stator's attachments. It is closed by the rotor,
+    which will soon be shown. </p>
+
+    <p class="publication-content"><br></br>&ensp; The rotor, being where currents are induced, has to be electrically conductive, and has
+    those serrated edges to prevent eddy current-related loss. It is extremely important that it is not made from a single
+    hunk of material, as the 3D model may imply, and instead out of compressed anodized (or just mutually insulated) sheets
+    of conductive material (typically Silicon Steel), as that reduces axial eddy current losses.
+    </p>
+
+    <img src = ../images/Induction-motor-rotor.png id = "publication-image" id = "not-footer">
+    <p class=" publication-image-descriptor"> The large clamp at the non-serrated side is the closure for the roller bearing. 
+    Not needed if one intends to buy a premade bearing, but that's literally a trick in order to simplify the final assembly.</p>
+    <P class="publication-content"> <br></br>&ensp;Now, with all that done, all that remains is to show the final mechanical assembly. I hope you've followed
+    through this ridiculous excuse of a project, one which allowed for advancements in my knowledge on all the areas required.
+    And I'll let that be enough.</P>
+
+        <!--Image(s), if listed-->
+        <div class="publication-image" id="not-footer">
+            <script>
+                    var images = [{
+                            "image_desc": "The final mechanical assembly. Looks pretty plain from the outside without hte windings. In case you're wondering, I didn't bother to design a holder for the PCB.",
+                            "src": "../images/FA_Induction_motor_1.png",
+                        },
+                    ];
+
+                window.onload = function() {
+                var content = document.getElementById('not-footer');
+                images.forEach(function(image) {
+                    var img = document.createElement('img');
+                    var p = document.createElement('p');
+                    img.id = 'publication-image';
+                    img.src = image.src;
+                    img.alt = image.image_desc;
+                    content.appendChild(img);
+                    //Image descriptor
+                    var image_desc = document.createElement('p');
+                    image_desc.className = 'publication-image-descriptor'
+                    image_desc.textContent = image.image_desc;
+                    content.appendChild(image_desc);
+                    });
+                };
+            </script>
+        </div>
+        <div class = "footer-wrapper"> <!--Sets a dummy space for the wrapper, hence allowing the establishment of a margin atop it, equivalent to a margin from the end of the content field (i.e. "publication-content").-->
+            <footer class = "dynamicgen" id="publication-footer"><br>◎©Raphael Jones Dias Da Silva - 2024 (12024He)<br><a href="https://github.com/RaphaelJDDS">GitHub </a> <strong>·</strong> <a href="https://instagram.com/rapha.jdds"> Instagram</a></footer>
+        </div>
+    </body>
+</html>
