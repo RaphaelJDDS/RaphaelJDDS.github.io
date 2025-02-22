@@ -37,9 +37,9 @@
         <p class = "publication-content" id = "DateAndTime">Published on 1/21/2025, 10:53 Pm (GMT).</p>
         <p class = "publication-content">&ensp; Initially, "Learning the basics of Microcontrollers, Assembly programming, PWM, circuitry and
         PCB design, part development and induction motor operation in order to design one." seemed like an appropriate title. 
-        But that would've been too long. This page is long as well. If you want to skip the details, visit 
+        But that would've been too long. This page is long as well; Therefore, if you want to skip the details, visit 
         <a class="bright-link" href="https://github.com/RaphaelJDDS/I_BLDC_1">this folder.</a>
-        <br></br>&ensp;This article - for the sake of organization - is divided into broad operational sections. As a side note, this project's been a literal nightmare, with many obstacles along the way. Enjoy reading me trying to
+        <br></br>&ensp;This article - for the sake of organization - is hence divided into broad operational sections. As a side note, this project's been a literal nightmare, with many obstacles along the way. Enjoy reading me trying to
         explain it. 
         <br></br>&ensp; <br></br>&ensp; <strong> System architecture </strong>
         <br></br>&ensp; <br></br>&ensp; A nice way to introduce the chosen architecture is by examining how an induction motor
@@ -52,7 +52,7 @@
         and ICs to trigger electromagnets? That's a little less straightforward. Essentially: If you wind up three coils of wire
         around a core, and evenly space them along a certain circumference, and pass three AC signals with phases offset by 2π/3,
         the fields induced by the current add up and cancel out into a single, rotating magnetic field.
-        <br></br>&ensp;Now, all that is left is how to, from an DC signal, generate the three phase-offset AC signals. That's
+        <br></br>&ensp;Now, all that is left is figure out how to, from an DC signal, generate the three phase-offset AC signals. That's
         when a little creativity is needed. As for how, I went with programming a PWM into a PIC10F200 IC, and using the
         CD4017SA IC as a three-way phase splitter. PWM stands for Pulse-Width modulation, and what it does is vary the length
         of constant-voltage pulses, so that they smoothen out to a sinusoid by passing them thorugh capacitors (for current) and
@@ -60,22 +60,22 @@
         <br></br>&ensp; <br></br>&ensp; <strong> Circuit design </strong>
         <br></br>&ensp; <br></br>&ensp; As shown in the system architecture section, two ICs were chosen, and a voltage of
         5V was required. The only problem was that I would've overrun current limits had I used the AC directly from the 
-        phase splitter to power the coils, and thus it required to be wired up with transistors as shown:
+        phase splitter to drive the coils, thus requiring a push-pull amplification transistor arrangement as shown:
     </p>
 
     <img src = ../images/Induction_motor_diagram.png id = "publication-image" id = "not-footer">
     <p class=" publication-image-descriptor">Schematic for the circuit, note how the FSZT ICs are NPN, whilst the ZTXs are PNP.</p>
     
-    <p class = "publication-content"><br>&ensp;Other than the addition of a 100nF decoupling capacitor (to prevent overcurrent due to
-    electromagnetic noise and induction), there isn't much that is remarkable to talk about on this front. Note that "Induction coil"
+    <p class = "publication-content"><br>&ensp;Other than the addition of a 100nF decoupling capacitor (for overcurrent/EMI prevention), 
+    there isn't much remarkable to talk about on this front. Note that "Induction coil"
     is a mere placename for where the (generic) spools would be connected/soldered.
     <br></br>&ensp; <br></br>&ensp; <strong> PCB design </strong>
-    <br></br>&ensp; <br></br>&ensp; Talking about PCBs, you'll see three main objectives: Minimizing the number of layers
-    (preferrably down to two), reducing trace length/using decoupling capacitors (preventing EMI/EMP) and maximizing trace
-    thickness (reducing resistance, particulatly in power-carrying cases). In this case, the circuit is fairly simple, and thus
-    all requirements were easy to deal with due to wide tolerances (e.g. AC signal noise was irrelevant). Still, distributing the
-    elements was the hardest task, as that determines how complicated the traces will need to be.
-    <br></br>&ensp; I also took the care to minimize board size, whilst trying to avoid cramping elements to simplify soldering.
+    <br></br>&ensp; <br></br>&ensp; On the matter of PCBs, are generally most noteworthy three main objectives: Layer count minimization
+    (preferrably down to two), trace length reduction/decoupling capacitor usage (preventing EMI/EMP) and trace
+    thickness maximization(reducing resistance, particulatly in power-carrying cases). In this case, the circuit is fairly simple, and thus
+    all such requirements can be easily dealt with given the wide tolerances (e.g. the virtual irrelevance of AC-signal noise). Still, distributing the
+    elements was a demanding task, as that determines the required trace complexity.
+    <br></br>&ensp; I also took the care to minimize board size, whilst trying to avoid cramping elements in order to simplify soldering.
     The compromises I made, along with my distinct lack of expertise, resulted in the following board:</p>
     
     <img src = ../images/PCB_Induction-DC-motor.svg id = "publication-image" id = "not-footer">
@@ -84,15 +84,15 @@
 
     <p class = "publication-content"><br></br>&ensp; <br></br>&ensp; <strong> Programming the PIC MCU </strong>
     <br></br>&ensp; <br></br>&ensp;This has to be one of the coolest parts. Remember the PWM? The microcontroller has to deliver
-    a varying electrical duty cycle, which in code is synonymous with varying delays to turn an output
+    a varying electrical duty cycle, which in code is synonymous with varying delays to switch an output
     (e.g. GP1/General-purpose 1 pin) on (+5V/VCC) and off (GND).
-    <br></br>&ensp; As for implementation, the main hurdle is writing in assembly, a very low-level language, meaning "time"
+    <br></br>&ensp; As for implementation, the main hurdle comes down to writing in assembly, a very low-level language, meaning "time"
     is not in-built, and so variable-length instruction loops are to be introduced. The final solution achieved can be found 
     <a class="bright-link" href="https://gist.github.com/RaphaelJDDS/6c7547ff25c07a9e2aab92b173b2b125">here</a>. Remember the code was
     written to be compiled by MPASM (only available for MPLAB v5.35 or earlier).</p>
     
     <img src = ../images/PWM_MPASM.svg id = "publication-image" id = "not-footer">
-    <p class=" publication-image-descriptor">Assembly language is pretty technical, undortunately commenting doesn't make the mnemonics and
+    <p class=" publication-image-descriptor">Assembly language is pretty technical, and unfortunately commenting doesn't make the mnemonics and
     logic justice. </p>
     
     <p class="publication-content"><br></br>&ensp; As for configuring the PIC, you can connect it to a PICKIT (any model) and connect the latter to a computer running
@@ -125,7 +125,7 @@
     <p class=" publication-image-descriptor"> The large clamp at the non-serrated side is the closure for the roller bearing. 
     Not needed if one intends to buy a premade bearing, but that's literally a trick in order to simplify the final assembly.</p>
     <P class="publication-content"> <br></br>&ensp;Now, with all that done, all that remains is to show the final mechanical assembly. I hope you've followed
-    through this ridiculous excuse of a project, one which allowed for advancements in my knowledge on all the areas required.
+    through this ridiculous excuse of a project, one which furthered my knowledge on all the required fields.
     And I'll let that be enough.</P>
 
         <!--Image(s), if listed-->
