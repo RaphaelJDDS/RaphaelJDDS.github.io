@@ -39,9 +39,7 @@
         I was really wrong. It ended up pushing the envelope of my abilities, from EDA to Blender, at a surprising scale - and I am glad to have finally, actually finished it.         
         <br></br>&ensp; This page is a summary of the development of a crude MP3 player with a screen GUI (that only interprets
         .wav files). If you wish to avoid the details, you can visit     <a class="bright-link" href="https://github.com/RaphaelJDDS/MP3_1">this folder</a> and watch the following CGI demo I've made in blender.
-    </p>
-
-    
+    </p>    
     <iframe src = "https://youtube.com/embed/vjMbvGIx5lI?playlist=vjMbvGIx5lI&loop=1" id = "publication-video" id = "not-footer"></iframe>
     <p class=" publication-image-descriptor">This animation was a pain to render and design. Anyway, while the PCB's components are arranged as shown,<br>
         the tracing is actually from an early design, as I mixed up files (and life's too short to re-render it). 
@@ -80,13 +78,13 @@
     <p class = "publication-content">
     <br></br>&ensp; <br></br>&ensp; <strong>Circuit design</strong>
     <br></br>&ensp; 
-    The circuit design process was fairly basic for this project, though also full of new requirements (though luckily, 
+    The circuit design process was fairly basic for this project, though also full of new requirements (although, fortunately, 
     the low signal frequencies made impedance matching unnecessary).
     <br></br>&ensp; Here, the main points worthy of mention are the pull-up resistors (for buttons), which aren't particularly complicated
     but were surely new to me, the buck converter, also simple in implementation despite novelty, the power management and proper decoupling
     for signal integrity (fairly complex).
     <br></br>&ensp; Specifically, the board consisted of four planes, one for Ground (GND), another for the Common Collector (VCC), and 
-    an analog counterpart for each, with the latter being connected to the former only once and through a resistor, for conserving the 
+    an analog counterpart for each, with each of the latter being connected to the former conterparts only once and through resistors, for conserving the 
     integrity of the separate signal types (and avoiding noisy power traces from interfering in the analog output). 
     Decoupling capacitors of various capacitances had, thus, to be employed to avoid Electromagnetic Interference of various frequencies.
     <br></br>&ensp; Here it is possible to see the final schematic:
@@ -160,5 +158,6 @@
     </body>
 
 </html>
+
 
 
