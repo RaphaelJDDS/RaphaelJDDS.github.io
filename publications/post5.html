@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../Style.css"/>
+<head>
+    <meta-charset-utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="/favicon.png">
+    <title>Publications | Raphael</title>
+    <meta name="google-site-verification" content="_7FfF4s0J_SeFssZWrzJSs1QVdFYXAId8UwRyBoYP6c" />
+</head>
+<body class = "dynamic-body">
+    <header>
+        <div class="box">
+            <nav id="Nav-for-posts">
+                <ul>
+                    <div class="navbar">
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <a href="../index.html" style="color: aliceblue; background-color: transparent;">
+                                    Home
+                                </a> 
+                            </button>
+                        <button href="../posts.html" class="publications-button">
+                            <a href="../posts.html" class="publications-button" style="color: aliceblue; background-color: transparent; margin-top:-0.75em;">
+                                Other publications
+                            </a>
+                        </button>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id ="main-content"></div> <!--Ingenious spacing lol-->
+        <p class = "main-title" style = "text-align: center;"> [PROJECT] Developing an integrated MP3 player </p>
+        <!--Textual body under the "publication-content" class; The "DateAndTime" id just sets some specifics.-->
+        <p class = "publication-content" id = "DateAndTime">Published on 8/2/2025, 3:29 Pm (GMT).</p>
+        <p class = "publication-content">&ensp; Initially, I genuinely thought this would be a simple project; 
+        I was really wrong. It ended up pushing the envelope of my abilities, from EDA to Blender, at a surprising scale - and I am glad to have finally, actually finished it.         
+        <br></br>&ensp; This page is a summary of the development of a crude MP3 player with a screen GUI (that only interprets
+        .wav files). If you wish to avoid the details, you can visit this folder and watch the following CGI demo I've made in blender.
+    </p>
+
+    
+    <iframe src = "https://youtube.com/embed/vjMbvGIx5lI?playlist=vjMbvGIx5lI&loop=1" id = "publication-video" id = "not-footer"></iframe>
+    <p class=" publication-image-descriptor">This animation was a pain to render and design. Anyway, while the PCB's components are arranged as shown,<br>
+        the tracing is actually from an early design, as I mixed up files (and life's too short to re-render it). 
+    </p>
+     <p class = "publication-content">
+     <strong>System architecture</strong>
+     <br></br>&ensp; 
+    
+     Essentially, the player is a fairly simple type of device, centered around a principle of portability and simplicity of design.
+    </br>&ensp;The actual design mostly revolved around a CPU, a STM32H7VET6 chip (hereinafter referred to as "STM32"), specifically selected for its
+    sufficient processing power for DAC and GUI rendering, as well as for the whole STMicro 'ecosystem' around it.
+    The board, thus, requires a screen (for displaying the GUI), a battery, a means of charging said battery, a TRS audio jack (for outputting the
+    actual signal), buttons for selection, and a MicroSD card slot for storage. Since I've taken a "first principles" look at it, some design choices may
+    appear to be rather strange.
+    <br></br>&ensp;As with the power side of things, I decided to integrate a AAA battery holder and hook it up to a USB-C Li-ion charging/discharging 
+    module (the TP4056), with the intention of inserting a rechargeable battery there. The only issue was that the module outputs
+    5V, well above the 3.3V required or supported by all components. This was solved by introducing a buck converter IC, responsible
+    for converting between these two voltages (with a current-boosted, load-adjusted output).
+    <br></br>&ensp;The display required a little more consideration, though, especially when choosing which interfacing protocol
+    would be best. I ended up going with SPI, given its compatibility with the ST7735 library, used by the STM32 to drive the screen.
+    <br></br>&ensp; <br></br>&ensp;
+    <strong>CPU programming</strong>
+     
+    <br></br>&ensp;This was by far the longest and most draining part of the process. Essentially, what had to be implemented were a SDMMC
+    interface (for reading data from the MicroSD card), Digital to Analog Conversion (DAC), and a functioning (albeit crude) GUI
+    controlled by pull-up buttons. 
+    My greatest hurdles were in a lack of familiarity relative to the STM32 IDE and with the functioning of an MCU larger than a small PIC.
+    <br></br>&ensp;My main objective was to simplify the code as much as possible, thus I employed the fatfs library for the SDMMC interface,
+    the STM7735 library for the GUI, and the in-built DAC implementation of the IDE. The GUI took the most time, as all the logic beyond 
+    its library had to be hand-coded, more so than with the fatfs counterpart.   
+    <br></br>&ensp;As all other programming details would be excessive, here's an image of my pin layout: </p>
+     <div class = "img_wrapper">
+    <img src = ../images/PIN_LAYOUT_MP3.png id = "publication-image" id = "not-footer"></img>
+    <p class=" publication-image-descriptor">I laid the pins out before designing the board, and thus it's... Less than ideal</p>
+     </div>
+    <p class = "publication-content">
+    <br></br>&ensp; <br></br>&ensp; <strong>Circuit design</strong>
+    <br></br>&ensp; 
+    The circuit design process was fairly basic for this project, though also full of new requirements (though luckily, 
+    the low signal frequencies made impedance matching unnecessary).
+    <br></br>&ensp; Here, the main points worthy of mention are the pull-up resistors (for buttons), which aren't particularly complicated
+    but were surely new to me, the buck converter, also simple in implementation despite novelty, the power management and proper decoupling
+    for signal integrity (fairly complex).
+    <br></br>&ensp; Specifically, the board consisted of four planes, one for Ground (GND), another for the Common Collector (VCC), and 
+    an analog counterpart for each, with the latter being connected to the former only once and through a resistor, for conserving the 
+    integrity of the separate signal types (and avoiding noisy power traces from interfering in the analog output). 
+    Decoupling capacitors of various capacitances had, thus, to be employed to avoid Electromagnetic Interference of various frequencies.
+    <br></br>&ensp; Here it is possible to see the final schematic:
+    </p>
+    <div class = "img_wrapper">
+    <img src = ../images/MP3_SCH.png id = "publication-image" id = "not-footer"></img>
+    <p class=" publication-image-descriptor">The schematic was actually split into two pages, and the merger was unfortunately slightly misaligned.</p>
+    </div>
+    <p class = "publication-content">
+    <br></br>&ensp;<br></br>&ensp; <strong>PCB design</strong><br></br>&ensp; 
+    Apart from the programming, the PCB design was the most difficult step to accomplish. Luckily, there weren't as many rigorous requirements
+    and components as in some other boards. Proper routing was a novelty, though it pales in comparison to plane management and appropriate component placement.
+    <br></br>&ensp;As for specific sections of the board, there is much to mention. The power management was mostly segregated 
+    to its own region in the board due to noise concerns, and required a fair bit of creativity, as shown in the System Architecture
+     section. It was impossible to <i>completely</i> segregate it due to other requirements (namely that the USB-C, TRS and MicroSD connectors should be nearby).
+     Analog signals were sent preferrably within the lower, analog planes of the circuit in avoidance of interference.
+    <br></br>&ensp; Traces and vias were sized to their relative current flows, as to minimize resistances and board area (managing
+    their trade-offs); and decoupling capacitors were placed near highly susceptible components, namely the CPU+Connectors region.
+    <br></br>&ensp; The following image is my final board design (as opposed to the one in the render, of same placement but different routing):
+    </p>
+    
+    <div class = "img_wrapper">
+        <img src = ../images/MP3_PCB.png id = "publication-image" id = "not-footer"></img>
+        <p class=" publication-image-descriptor">From top to bottom, the planes are: VCC, GND, VCC (Analog), GND (Analog)</p>
+    </div>
+
+    <p class="publication-content">
+        <br></br>&ensp;<br></br>&ensp; <strong>The case</strong><br></br>&ensp;
+        There isn't much to mention here, other than that the locking mechanism was fairly difficult to devise, as the front has
+        to snap to the back, be removable, and both are supposed be 3D-printable. Here is an outline of the final assembly  
+    </p> 
+    <div class = "img_wrapper">
+        <img src = ../images/CARCASS_MP3.png id = "publication-image" id = "not-footer"></img>
+        <p class=" publication-image-descriptor">From top to bottom, the planes are: VCC, GND, VCC (Analog), GND (Analog)</p>
+    </div>
+
+        <!--Image(s), if listed-->
+        <div class="publication-image" id="not-footer">
+            <script>
+                    var images = [{
+                            "image_desc": "",
+                            "src": "../images/",
+                        },
+                    ];
+
+                window.onload = function() {
+                var content = document.getElementById('not-footer');
+                images.forEach(function(image) {
+                    var img = document.createElement('img');
+                    var p = document.createElement('p');
+                    img.id = 'publication-image';
+                    img.src = image.src;
+                    img.alt = image.image_desc;
+                    content.appendChild(img);
+                    //Image descriptor
+                    var image_desc = document.createElement('p');
+                    image_desc.className = 'publication-image-descriptor'
+                    image_desc.textContent = image.image_desc;
+                    content.appendChild(image_desc);
+                    });
+                };
+            </script>
+        </div>
+        <div class = "footer-wrapper"> <!--Sets a dummy space for the wrapper, hence allowing the establishment of a margin atop it, equivalent to a margin from the end of the content field (i.e. "publication-content").-->
+            <footer class = "dynamicgen" id="publication-footer"><br>◎©Raphael Jones Dias Da Silva - 2024 (12024He)<br><a href="https://github.com/RaphaelJDDS">GitHub </a> <strong>·</strong> <a href="https://instagram.com/rapha.jdds"> Instagram</a></footer>
+        </div>
+    </body>
+</html>
