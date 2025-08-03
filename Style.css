@@ -655,7 +655,7 @@
     aspect-ratio: 16 / 9;
     width: 68vw;
     margin-bottom: 12vh;
-    margin-top: 12vh;
+    margin-top: 1vh;
     /*The margin-left value is given by the formula m = [50-(width/2)] if the image is to be held in the center*/
     margin-left: 16vw;
     margin-right: 2vw;
