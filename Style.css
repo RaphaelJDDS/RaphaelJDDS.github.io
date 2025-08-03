@@ -238,6 +238,16 @@
       margin-right: 2vw;
       border-radius: 1%;
     }
+    #publication-video{
+      aspect-ratio: 16 / 9;
+      width: 30vw;
+      margin-bottom: 20vh;
+      margin-top: 4vh;
+      /*The margin-left value is given by the formula m = [50-(width/2)] if the image is to be held in the center*/
+      margin-left: 35vw;
+      margin-right: 2vw;
+      border-radius: 1%;
+    }
     .publication-image-descriptor{
       text-align:center;
       color: aliceblue;
@@ -619,6 +629,7 @@
     font-style: italic;
   }
   #publication-image{
+    display: block;
     height: auto;
     width: 58vw;
     margin-bottom: 12vh;
@@ -627,8 +638,31 @@
     margin-left: 21vw;
     margin-right: 2vw;
     border-radius: 1%;
+    transition: inherit;
+  }
+    .img_wrapper{
+    overflow: visible;
+    transition: transform 0.3s ease-in-out; 
+  }
+  .img_wrapper:has(#publication-image:hover){
+    transform: scale(1.4);
+    .publication-image-descriptor{
+      transform: scale(calc(1/1.4));
+    }
+  }
+
+  #publication-video{
+    aspect-ratio: 16 / 9;
+    width: 68vw;
+    margin-bottom: 12vh;
+    margin-top: 12vh;
+    /*The margin-left value is given by the formula m = [50-(width/2)] if the image is to be held in the center*/
+    margin-left: 16vw;
+    margin-right: 2vw;
+    border-radius: 1%;
   }
   .publication-image-descriptor{
+    --margin-top:-11vh;
     font-size: 0.675em;
     text-align:center;
     color: aliceblue;
@@ -637,8 +671,10 @@
     padding-left:8vw;
     padding-right: 8vw;
     /*The margin-top value shall be negative if the #publication-image's margin-bottm value is too great.*/
-    margin-top: -11vh;
+    margin-top: var(--margin-top);
+    transition: transform 0.3s ease-in-out;
   }
+
   #main-content{
     margin-top: 15vh;
   }
