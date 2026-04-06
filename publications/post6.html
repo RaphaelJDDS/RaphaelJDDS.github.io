@@ -38,10 +38,13 @@
             -based approach to the problem, capable of achieving upwards of 4MAtom-step/s in middling GPU hardware.
             <br>&ensp;The program on itself is contained in <a class="bright-link" href="https://github.com/RaphaelJDDS/LJ_Simulation_CUDA-OGL/tree/master#">this repository</a>, 
         being compiled from the VS project (.vcxproj) in the Microsoft compiler.</p>
+        <div class = "img_wrapper">
         <img src="../images/LJ_Sim_Printscreen.png" id="publication-image" id="not-footer"></img>
         <p class="publication-image-descriptor">Shot of the OpenGL window with 100 thousand particles, with the GUI visible</p>
+        </div>
         </p>
              <p class = "publication-content">
+             <br></br>&ensp; <br></br>&ensp; 
              <strong>System architecture</strong>
              <br></br>&ensp; 
              Any MD simulation can at its core be modelled as an ensemble (the particles and their data), an initializer (setting the
@@ -77,10 +80,12 @@
               the particles accelerate given their current positions.     
               <br>&ensp; Here's a graph for the Lennard-Jones potential:
               </p>
+              <div class = "img_wrapper">
               <img src="../images/contour_plot_Lennard_Jones.png" id = "publication-image" id = "not-footer"></img>
               <p class="publication-image-descriptor">Section of a 3D plot of the LJ potential (&sigma; = 3.0, &epsilon;=10.0) with contours.</p>
-
+              </div>
               <p class="publication-content">
+              <br></br>&ensp; <br></br>&ensp;  
               <strong>Computational layout and implementations</strong>
               <br></br>&ensp;
               Processing layout
@@ -92,11 +97,13 @@
               Parallel operations can also be somewhat stacked, meaning they can be split into <i>streams</i> to an extent, as in the 
               following diagram:
               </p>
+              <div class = "img_wrapper">
               <img src="/../images/LJ_Sim_diagram.svg" id = "publication-image" id = "not-footer"></img>
               <p class="publication-image-descriptor"> Architectural diagram for the simulation as a whole. Note two details: 
                 the "compute instances"step is actually first (to simplify the debugging process) in the <br> loop, and the input processing
                 (CPU-based) and graphical processing (GPU-based) are separate, but both use OpenGL handles
               </p>
+              </div>
               <p class = "publication-content">
               <br></br>&ensp;
               Data layout
