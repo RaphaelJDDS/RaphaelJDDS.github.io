@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="../Style.css"/>
-<head>
-    <meta-charset-utf-8>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="/favicon.png">
-    <title>Publications | Raphael</title>
-    <meta name="google-site-verification" content="_7FfF4s0J_SeFssZWrzJSs1QVdFYXAId8UwRyBoYP6c" />
-</head>
+
+    <head id="site-head"></head>
+            <script id="2j3f0k">
+  (function () {
+    const now = new Date();
+    const hours = now.getHours();       // 0-23
+    const saved = localStorage.getItem("mode");
+
+    const standard = "lightmode";
+    if(hours < 5 || hours > 19){//nighttime
+        standard = "darkmode";
+        console.log(standard)
+    }
+    const mode = saved || standard; // default
+    document.documentElement.classList.add(mode);
+    })();
+    </script>
+    <script src="../scripts/loadHeads.js"></script>
+
+        <div id="site-header"><link rel="stylesheet" href="../Style.css"/></div>                               <!--Is injected with headers-->
+    <script src="../scripts/loadHeaders.js"></script>
 <body class = "dynamic-body">
-    <header>
-        <div class="box">
-            <nav id="Nav-for-posts">
-                <ul>
-                    <div class="navbar">
-                        <div class="dropdown">
-                            <button class="dropbtn">
-                                <a href="../index.html" style="color: aliceblue; background-color: transparent;">
-                                    Home
-                                </a> 
-                            </button>
-                        <button href="../posts.html" class="publications-button">
-                            <a href="../posts.html" class="publications-button" style="color: aliceblue; background-color: transparent; margin-top:-0.75em;">
-                                Other publications
-                            </a>
-                        </button>
-                    </div>
-                </ul>
-            </nav>
-        </div>
-    </header>
+   
+
+    
     <div id ="main-content"></div> <!--Ingenious spacing lol-->
-        <p class = "main-title" style = "text-align: center;"> [PROJECT] A repository of early CAD designs </p>
+        <p class = "main-title" style = "text-align: center;" id="post-title"> [PROJECT] A repository of early CAD designs </p>
         <!--Textual body under the "publication-content" class; The "DateAndTime" id just sets some specifics.-->
 
         <p class = "publication-content" id = "DateAndTime">Published on 5/12/2024, 2:41 Pm (GMT).</p>
+        <script type="module" src = "../scripts/loadPostData.js"></script>
 
         <p class = "publication-content">&ensp; In recent months, I've been trying to wrap my head around CAD software, thus,
         as a means to gain some experience with it, I set out to create a few basic, impractical, designs as proofs of concept.
@@ -80,8 +75,7 @@
                 };
             </script>
         </div>
-        <div class = "footer-wrapper"> <!--Sets a dummy space for the wrapper, hence allowing the establishment of a margin atop it, equivalent to a margin from the end of the content field (i.e. "publication-content").-->
-            <footer class = "dynamicgen" id="publication-footer"><br>◎©Raphael Jones Dias Da Silva - 2024 (12024He)<br><a href="https://github.com/RaphaelJDDS">GitHub </a> <strong>·</strong> <a href="https://instagram.com/rapha.jdds"> Instagram</a></footer>
-        </div>
+        <div class="footer-wrapper" id="site-footer"></div>
+         <script src="../scripts/loadFooters.js"></script>
     </body>
 </html>

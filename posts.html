@@ -1,91 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="Style.css"/>
-<head>
-    <meta-charset-utf-8>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="/favicon.jpg">
-    <title>Raphael-J.D.D.S | Posts</title>
-    <meta name="google-site-verification" content="_7FfF4s0J_SeFssZWrzJSs1QVdFYXAId8UwRyBoYP6c" />
-</head>
-    <header>
-        <div class="box">
-            <nav>
-                <ul>
-                    <div class="navbar">
-                        <div class="dropdown">
-                            <button class="dropbtn">
-                                <a href="index.html" style="color:aliceblue;">
-                                Home
-                                </a>
-                            </button>
-                    </div>
-                </ul>
-            </nav>
-        </div>
-    </header>
+
+    <head id="site-head"></head>
+            <script id="2j3f0k">
+  (function () {
+    const now = new Date();
+    const hours = now.getHours();       // 0-23
+    const saved = localStorage.getItem("mode");
+
+    const standard = "lightmode";
+    if(hours < 5 || hours > 19){//nighttime
+        standard = "darkmode";
+        console.log(standard)
+    }
+    const mode = saved || standard; // default
+    document.documentElement.classList.add(mode);
+    })();
+    </script>
+    <script src="scripts/loadHeads.js"></script>
+            
+    <div id="site-header">
+        <div> <link rel="stylesheet" href="Style.css"/></div>
+    </div> <!--Is injected with headers; preload Styles to make it seamless-->
+    <script src="scripts/loadHeaders.js"></script>
+    
     <body class="dynamic-body">
         <div id="main-content">
             <!-- This is where the script-generated content will go -->
         </div>
-        <script async>
+        <script type="module" async src="scripts/loadPostsList.js"></script>
 
-
-        // Post data comes here. DO NOT FORGET THE GODDAMN COMMAS! The first on the list will appear as the last on the page.
-        var data = [
-        {
-            "title": "A gallery of images made with Stable Diffusion",
-            "time": "December 5th, 2:41 Am (GMT), 2023",
-            "url": "AIgallery.html",
-        },
-        {
-            "title": "[PROJECT] A basic ecological simulation program",
-            "time": "February 18th, 5:19 Pm (GMT), 2024",
-            "url": "publications/post2.html",
-        },
-        {
-            "title": "[PROJECT] A repository of early CAD designs",
-            "time": "June 23rd, 11:43 Pm (GMT), 2024",
-            "url": "publications/post3.html",
-        },
-        {
-            "title": "[PROJECT] Designing an induction radial-flow BLDC motor",
-            "time": "January 21st, 10:54 Pm (GMT), 2025",
-            "url": "publications/post4.html",
-        },
-        {
-            "title": "[PROJECT] Developing an integrated MP3 player",
-            "time": "August 2nd, 3:29 Pm (GMT), 2025",
-            "url": "publications/post5.html",
-        }
-    ]
-    
-        // Get the main content div
-        var mainContent = document.getElementById('main-content');
-    
-        // Iterator for each object
-        for (var i = data.length -1; i < data.length; i--) {
-            var div = document.createElement('div');
-            var div = document.createElement('div');
-            var title = document.createElement('h1');
-            title.className = 'publication-title';
-            var a = document.createElement('a');
-            a.textContent = data[i].title;
-            a.href = data[i].url;
-            a.className = 'postslist-title';
-            title.appendChild(a);
-            var time = document.createElement('p');
-            time.textContent = data[i].time;
-            time.className = 'publication-title';
-            time.id = 'DateAndTime';
-            div.appendChild(title);
-            div.appendChild(time);
-            mainContent.appendChild(div);
-        }
-        </script>
-        <div class="footer-wrapper">
-            <footer class="dynamicgen" id="publication-list-footer"><br>◎©Raphael Jones Dias Da Silva - 2024 (12024He)<br><a href="https://github.com/RaphaelJDDS">GitHub </a> <strong>·</strong> <a href="https://instagram.com/rapha.jdds"> Instagram</a></footer>
-        </div>
+        <div class="footer-wrapper" id="site-footer"></div>
+         <script src="../scripts/loadFooters.js"></script>
     </body>
 </html>

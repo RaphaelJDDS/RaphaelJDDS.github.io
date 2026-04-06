@@ -1,0 +1,32 @@
+[
+    {
+        "title": "A gallery of images made with Stable Diffusion",
+        "time": "December 5th, 2:41 Am (GMT), 2023",
+        "url": "AIgallery.html"
+    },
+    {
+        "title": "[PROJECT] A basic ecological simulation program",
+        "time": "February 18th, 5:19 Pm (GMT), 2024",
+        "url": "publications/post2.html"
+    },
+    {
+        "title": "[PROJECT] A repository of early CAD designs",
+        "time": "June 23rd, 11:43 Pm (GMT), 2024",
+        "url": "publications/post3.html"
+    },
+    {
+        "title": "[PROJECT] Designing an induction radial-flow BLDC motor",
+        "time": "January 21st, 10:54 Pm (GMT), 2025",
+        "url": "publications/post4.html"
+    },
+    {
+        "title": "[PROJECT] Developing an integrated MP3 player",
+        "time": "August 2nd, 3:29 Pm (GMT), 2025",
+        "url": "publications/post5.html"
+    },
+    {
+        "title": "[PROJECT] A Langevin Lennard-Jones Simulation",
+        "time": "April 1st, 6:40 Pm (GMT), 2026",
+        "url": "publications/post6.html"
+    }
+]

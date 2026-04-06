@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="Style.css"/>
-    <meta-charset-utf-8>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="/favicon.jpg">
-    <title>Raphael-J.D.D.S. | Main page</title>
-    <meta name="google-site-verification" content="_7FfF4s0J_SeFssZWrzJSs1QVdFYXAId8UwRyBoYP6c" />
+    <head id="site-head"></head>
+            <script id="2j3f0k">
+  (function () {
+    const now = new Date();
+    const hours = now.getHours();       // 0-23
+    const saved = localStorage.getItem("mode");
 
-<meta author="Raphael Jones" content="Raphael Jones" />
-</head>
-<header>
-    <div class="box">
-        <nav>
-            <ul>
-                <div class="navbar">
-                    <div class="dropdown">                        
-                    <button href="posts.html" class="publications-button" style="margin-left:1em;">
-                        <a href="posts.html" class="publications-button" style="color: aliceblue; background-color: transparent;">
-                            Publications
-                        </a>
-                </div>
-            </ul>
-        </nav>
-    </div>
-</header>
+    const standard = "lightmode";
+    if(hours < 5 || hours > 19){//nighttime
+        standard = "darkmode";
+        console.log(standard)
+    }
+    const mode = saved || standard; // default
+    document.documentElement.classList.add(mode);
+    })();
+    </script>
+    <script src="scripts/loadHeads.js"></script>
+
+    <div id="site-header">
+        <head> <link rel="stylesheet" href="Style.css"/></head>
+    </div> <!--Is injected with headers; preload Styles to make it seamless-->
+    <script src="scripts/loadHeaders.js"></script>
+
 <body class="dynamic-body">
     <div id="main-content">
+
         <div class="typewriter">
             <p class="main-title" style="font-size:5em;">Hello!                </p>
             <p class="intro">&ensp; I'm Raphael Jones, and welcome to my
@@ -45,8 +43,14 @@ website (I'll try not leaving it hopelessly abandoned)!
             </a>
         </div>
 
-        <script>
-        var renderingTime = 70; // Character rendering time (ms)
+        <svg>
+            <filter
+                 id="pixelate" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            </filter>
+        </svg>
+        <script src="scripts/pixelate.js" defer></script>
+        <script defer>
+        var renderingTime = 60; // Character rendering time (ms)
 
         function typeWriter(element, callback) {
         var text = element.textContent;
@@ -80,11 +84,10 @@ website (I'll try not leaving it hopelessly abandoned)!
         nextParagraph();
         }
 
-        window.onload = startAnimation; // Start the animation when the window loads
+        window.onload = startAnimation; // Start the animation when the window loads      
         </script>
-        <div class="footer-wrapper">
-            <footer class="dynamicgen" id="publication-list-footer"><br>◎©Raphael Jones Dias Da Silva - 2024 (12024He)<br><a href="https://github.com/RaphaelJDDS">GitHub </a> <strong>·</strong> <a href="https://instagram.com/rapha.jdds"> Instagram</a></footer>
-        </div>
+        <div class="footer-wrapper" id="site-footer"></div>
+         <script src="../scripts/loadFooters.js"></script>
     </div>
 </body>
 </html>
