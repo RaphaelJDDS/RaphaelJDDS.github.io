@@ -52,19 +52,19 @@
              also requires a graphical engine for displaying the simulation and setting its parameters on the fly.
              <br></br>&ensp;
              Most of these components have fairly simple possible implementations (e.g. na&iuml;ve random placement, each particle 
-             interacting with every other, Euler integration, and so forth), but nearly all of which present great performance,
+             interacting with every other, Euler integration, and so forth), but nearly all present great performance,
              accuracy, and/or stability deal-breakers. As such, most of the development effort in such systems is spent on
              optimizing for these variables, instead of on the Physics to which the ensemble must conform.
              <br></br>&ensp;
              With the general model out of the way, it is now possible to look for a computational architecture
              satisfying these requirements. Right off the bat, this is clearly a collection of embarassingly parallel problems.
              Hence, a staged GPU architecture is optimal for such a thoughput-intensive workload, and I therefore applied it with
-             CUDA C++, essentially a gold standard for on-device parallel programming. 
+             CUDA C++, essentially the gold standard for on-device parallel programming. 
              <br></br>&ensp;
              The graphical processing is slightly less straightforward, as there are a multitude of angles to approach it from, but
              an extremely optimized engine, rendering on the GPU using GPU data (i.e. skipping the latency from round trips with the
              CPU) at as little a cost as possible, is the ideal target. For such a task, Modern OpenGL has proven to possibly be the
-             best of middle grounds between higher- and lower-level (i.e. Vulkan) libraries, with enough low-level control for 
+             best of middle grounds between higher- and lower-level (chiefly Vulkan) libraries, with enough low-level control for 
              more tailored buffer usage and draw calls, whilst still dealing with most of the hardware details on its own. 
              <br></br>&ensp; <br></br>&ensp; 
              <strong>The Physics</strong>
@@ -76,8 +76,9 @@
               <br>&ensp;<strong> F<sub>i</sub></strong> = -&nabla;V<sub>i</sub> = m<sub>i</sub> d&sup2;<strong>r<sub>i</sub></strong>/dt&sup2;
               <br></br>&ensp;  Where i and j are any two particles, r<sub>ij</sub> their distance, V<sub>LJ, ij</sub> their potential, &epsilon;
               the electric permittivity, &sigma; the zero-potential distance, and 
-              <strong>r<sub>i</sub></strong> the position vector of a particle i. These are, in essence differential equations describing how
-              the particles accelerate given their current positions.     
+              <strong>r<sub>i</sub></strong> a position vector. These are, in essence differential equations describing how
+              the particles accelerate given their current positions. Computing and adding the potentials to then
+              obtain the gradients as implied would be burdensome, and hence forces were calculated individually and added up.   
               <br>&ensp; Here's a graph for the Lennard-Jones potential:
               </p>
               <div class = "img_wrapper">
@@ -234,7 +235,8 @@
                <br></br>&ensp;
                Consequently, the graphics pipeline was mostly left unchanged, despite the inherent degree of complexity of Modern OpenGL.
                The rendering was split into an initialization stage, wherein the shader program was compiled, base attributes were loaded, and
-               instance attribute pointers linked, and a "draw" stage, loading data into the instance VBO (vertex buffer object). 
+               instance attribute pointers linked, and a "draw" stage, loading data into the instance VBO (vertex buffer object) to later clear and 
+               render the screen buffer (fortunately for simplicity, double buffering proved unnecessary). 
                <br></br>&ensp;
                The graphical user interface 
                <br></br>&ensp;
@@ -244,8 +246,8 @@
                <br></br>&ensp; <br></br>&ensp; 
                <strong>Performance & results</strong>
                <br></br>&ensp;
-               Testing in fairly low-end hardware (RTX 2060 GPU, Intel core i7, and constrained RAM), it was possible to consistently a
-               chieve ~4.1 MAtom-step/second in a simulation of 60'000 particles (each frame taking 14.5 ms on average), with
+               Testing in fairly low-end hardware (RTX 2060 GPU, Intel core i7, and constrained RAM), it was possible to consistently
+               achieve ~4.1 MAtom-step/second in a simulation of 60'000 particles (each frame taking 14.5 ms on average), with
                potential for improvement by simply being less conservative with the sorting rate (this measure is from sorting cells once
                every four frames, whilst some simulators sort once every more than twenty). The overwhelming majority of compute time stems
                from the interaction force calculations (~81% in the last tests), with the rest being almost completely spent sorting.
