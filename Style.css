@@ -499,8 +499,8 @@
     margin-bottom: 0;
     color: var(--main_text_color);
     background: var(--color3mo);
-    border-width: 0.06% 0 0 0;
-    border-color: rgba(0, 0,0, 0);
+    border-width: 1px 0 0 0;
+    border-color: var(--main_text_color);
     border-style: solid;
     display: flexbox;
   }
@@ -534,12 +534,12 @@
       margin-top: 450.5%;
       margin-bottom: -450.5%;
       color: var(--main_text_color);
-      background: var(--color3mo);
-      border-width: 0.06% 0 0 0;
+      background-color: var(--color3pc);
+      border-width: 1px 0px 0px 0px;
       border-color: var(--main_text_color);
       border-style: solid;
-      display: flexbox;
   }
+
   #publication-footer{
     margin-top: 12vh;
   }
